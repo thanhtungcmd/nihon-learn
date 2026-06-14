@@ -9,6 +9,8 @@
         <span>Simple</span>
         <router-link class="ms-5" to="/hiragana">- Hiragana</router-link>
         <router-link class="ms-5" to="/yoon">- Âm ghép</router-link>
+        <router-link class="ms-5" to="/katakana">- Katakana</router-link>
+        <router-link class="ms-5" to="/vowel">- Quy tắc âm</router-link>
       </div>
     </div>
   </section>

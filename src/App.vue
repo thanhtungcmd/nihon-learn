@@ -18,4 +18,9 @@
   table td {
     font-size: 32px;
   }
+
+  .text {
+    font-size: 32px;
+    line-height: 170%;
+  }
 </style>
