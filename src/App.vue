@@ -20,7 +20,11 @@
   }
 
   .text {
-    font-size: 32px;
+    font-size: 36px;
     line-height: 170%;
+  }
+
+  rt {
+    font-size: 22px;
   }
 </style>
