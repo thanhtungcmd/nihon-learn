@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '@/views/HomeView.vue'
-import Hiragana from '@/views/Hiragana.vue'
-import Yoon from '@/views/Yoon.vue'
-import Katakana from '@/views/Katakana.vue'
-import Vowel from '@/views/Vowel.vue'
+import HomeView from '@/views/simple/HomeView.vue'
+import Hiragana from '@/views/simple/Hiragana.vue'
+import Yoon from '@/views/simple/Yoon.vue'
+import Katakana from '@/views/simple/Katakana.vue'
+import Vowel from '@/views/simple/Vowel.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

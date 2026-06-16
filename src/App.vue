@@ -7,12 +7,12 @@
 </template>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
-  /* @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&display=swap'); */
+  /* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap'); */
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&display=swap');
 
   body {
-    font-family: 'Noto Sans JP', sans-serif !important;
-    /* font-family: 'Noto Serif JP', serif !important; */
+    /* font-family: 'Noto Sans JP', sans-serif !important; */
+    font-family: 'Noto Serif JP', serif !important;
   }
 
   table td {
