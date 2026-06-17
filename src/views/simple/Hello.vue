@@ -55,6 +55,7 @@
       </div>
     </div>
   </section>
+  <router-link class="btn btn-outline-primary mt-4" to="/">Back</router-link>
 </template>
 
 <script lang="ts"></script>

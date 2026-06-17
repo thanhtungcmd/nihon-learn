@@ -11,6 +11,9 @@
         <router-link class="ms-5" to="/yoon">- Âm ghép</router-link>
         <router-link class="ms-5" to="/katakana">- Katakana</router-link>
         <router-link class="ms-5" to="/vowel">- Quy tắc âm</router-link>
+        <router-link class="ms-5" to="/hello">- Chào hỏi cơ bản</router-link>
+        <span>N5</span>
+        <router-link class="ms-5" to="/n5/unit1">- Unit 1</router-link>
       </div>
     </div>
   </section>
