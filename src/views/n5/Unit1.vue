@@ -23,15 +23,15 @@
 						</tr>
 						<tr>
 							<td>～さん</td>
-							<td>hậu tố thêm phía sau để lịch sự</td>
+							<td>~ hậu tố thêm phía sau để lịch sự</td>
 						</tr>
 						<tr>
 							<td>～ちゃん</td>
-							<td>hậu tố thêm phía sau tên trẻ em</td>
+							<td>~ hậu tố thêm phía sau tên trẻ em</td>
 						</tr>
 						<tr>
 							<td>～じん</td>
-							<td>hậu tố chỉ người</td>
+							<td>~ hậu tố chỉ người</td>
 						</tr>
 						<tr>
 							<td>せんせい</td>
@@ -57,6 +57,95 @@
 							<td>ぎんこういん</td>
 							<td>nhân viên ngân hàng</td>
 						</tr>
+						<tr>
+							<td>いしゃ</td>
+							<td>bác sĩ</td>
+						</tr>
+						<tr>
+							<td>けんきゅうしゃ</td>
+							<td>nhà nghiên cứu</td>
+						</tr>
+						<tr>
+							<td>だいがく</td>
+							<td>đại học</td>
+						</tr>
+						<tr>
+							<td>びょういん</td>
+							<td>bệnh viện</td>
+						</tr>
+						<tr>
+							<td>だれ(どなた)</td>
+							<td>
+								Ai? <br> 
+                        どなた cách nói lịch sự <br>
+								だれ cách nói thông thường
+							</td>
+						</tr>
+                  <tr>
+                     <td>～さい</td>
+                     <td>~ tuổi</td>
+                  </tr>
+                  <tr>
+                     <td>なんさい(ないくつ)</td>
+                     <td>
+                        bao nhiêu tuổi? <br>
+                        なんさい nói thông thường <br>
+                        ないくつ nói lịch sự
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>はい</td>
+                     <td>vâng</td>
+                  </tr>
+                  <tr>
+                     <td>いいえ</td>
+                     <td>không</td>
+                  </tr>
+                  <tr>
+                     <td>はじめまして</td>
+                     <td>rất hân hạnh được gặp anh chị</td>
+                  </tr>
+                  <tr>
+                     <td>～からきました</td>
+                     <td>tôi đến từ ~</td>
+                  </tr>
+                  <tr>
+                     <td>
+                        どうぞよろしく<br>
+                        [おねがいします]
+                     </td>
+                     <td>
+                        rất vui khi được làm quen
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>しつれいですが</td>
+                     <td>xin lỗi (khi muốn hỏi thông tin)</td>
+                  </tr>
+                  <tr>
+                     <td>おなまえは？</td>
+                     <td>tên anh chị là gì?</td>
+                  </tr>
+                  <tr>
+                     <td>こちらは～さんです</td>
+                     <td>đây là anh/chị ~</td>
+                  </tr>
+                  <tr>
+                     <td>アメリカ</td>
+                     <td>nước Mỹ</td>
+                  </tr>
+                  <tr>
+                     <td>イギリス</td>
+                     <td>nước Anh</td>
+                  </tr>
+                  <tr>
+                     <td>イソド</td>
+                     <td>Ấn Độ</td>
+                  </tr>
+                  <tr>
+                     <td>イソドネシア</td>
+                     <td>Indonesia</td>
+                  </tr>
 					</tbody>
 				</table>
 			</div>
