@@ -10,8 +10,9 @@
 					style="max-width: 1200px; table-layout: fixed; width: 100%;">
 					<tbody>
 						<tr>
-							<td>わたし</td>
+							<td ref="firstWord">わたし</td>
 							<td>tôi</td>
+							<td><IconVolume stroke="2" class="icon-volume" @click="playPronunciation" /></td>
 						</tr>
 						<tr>
 							<td>あにた</td>
@@ -154,10 +155,57 @@
 	</section>
 </template>
 
-<script lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue';
+import { IconVolume } from '@tabler/icons-vue';
+import { PollyClient, SynthesizeSpeechCommand } from '@aws-sdk/client-polly';
+
+const firstWord = ref<HTMLElement | null>(null);
+
+const polly = new PollyClient({
+  region: import.meta.env.VITE_AWS_REGION || 'ap-northeast-1',
+  credentials: {
+    accessKeyId: import.meta.env.VITE_AWS_ACCESS_KEY_ID || '',
+    secretAccessKey: import.meta.env.VITE_AWS_SECRET_ACCESS_KEY || '',
+  },
+});
+
+async function playPronunciation() {
+  const text = firstWord.value?.textContent?.trim();
+  if (!text) {
+    return;
+  }
+
+  try {
+    const command = new SynthesizeSpeechCommand({
+      OutputFormat: 'mp3',
+      VoiceId: 'Takumi',
+      LanguageCode: 'ja-JP',
+      TextType: 'text',
+      Text: text,
+    });
+
+    const response = await polly.send(command);
+    if (!response.AudioStream) {
+      throw new Error('No audio stream received from Polly.');
+    }
+
+    const audioData = await new Response(response.AudioStream as any).arrayBuffer();
+    const audioUrl = URL.createObjectURL(new Blob([audioData], { type: 'audio/mpeg' }));
+    const audio = new Audio(audioUrl);
+    await audio.play();
+  } catch (error) {
+    console.error('Polly playback failed:', error);
+  }
+}
+</script>
 
 <style scoped>
 rt {
 	font-size: 24px;
+}
+
+.icon-volume {
+	cursor: pointer;
 }
 </style>
