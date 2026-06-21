@@ -8,6 +8,15 @@ const polly = new PollyClient({
   },
 });
 
+function encodeXml(value: string) {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
 export async function playJapanesePronunciation(
   text: string,
   voiceId: string = 'Takumi'
@@ -16,13 +25,16 @@ export async function playJapanesePronunciation(
     return;
   }
 
+  const ssmlText = `<speak><prosody rate="80%">${encodeXml(text.trim())}</prosody></speak>`;
+
   try {
     const command = new SynthesizeSpeechCommand({
       OutputFormat: 'mp3',
       VoiceId: voiceId,
       LanguageCode: 'ja-JP',
-      TextType: 'text',
-      Text: text.trim(),
+      Engine: 'neural',
+      TextType: 'ssml',
+      Text: ssmlText,
     });
 
     const response = await polly.send(command);

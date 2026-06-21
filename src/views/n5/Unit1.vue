@@ -24,6 +24,27 @@
 				</table>
 			</div>
 
+      <div class="mt-5 text">Hội thoại cơ bản</div>
+
+      <div class="mt-5 table-responsive">
+        <table class="table table-bordered table-hover mb-0 align-middle rounded-3"
+					style="max-width: 1200px; table-layout: fixed; width: 100%;">
+          <tbody>
+						<tr v-for="item in questionList" :key="item.japanese.join('-')">
+							<td>
+								<div v-for="(line, idx) in item.japanese" :key="idx">{{ line }}</div>
+							</td>
+							<td>
+								<div v-for="(line, idx) in item.vietnamese" :key="idx">{{ line }}</div>
+							</td>
+							<td>
+								<IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese)" />
+							</td>
+						</tr>
+					</tbody>
+        </table>
+      </div>
+
 		</div>
 	</section>
 </template>
@@ -52,6 +73,7 @@ const vocabularyList: VocabularyItem[] = [
   { japanese: ['ぎんこういん'], vietnamese: ['nhân viên ngân hàng'] },
   { japanese: ['いしゃ'], vietnamese: ['bác sĩ'] },
   { japanese: ['けんきゅうしゃ'], vietnamese: ['nhà nghiên cứu'] },
+  { japanese: ['エンジニア'], vietnamese: ['kỹ sư'] },
   { japanese: ['だいがく'], vietnamese: ['đại học'] },
   { japanese: ['びょういん'], vietnamese: ['bệnh viện'] },
   { japanese: ['だれ', '(どなた)'], vietnamese: ['Ai?', 'どなた cách nói lịch sự', 'だれ cách nói thông thường'] },
@@ -70,6 +92,15 @@ const vocabularyList: VocabularyItem[] = [
   { japanese: ['イソド'], vietnamese: ['Ấn Độ'] },
   { japanese: ['イソドネシア'], vietnamese: ['Indonesia'] },
 ];
+
+const questionList: VocabularyItem[] = [
+  { japanese: ['はじめまして。'], vietnamese: ['Rất vui được gặp bạn'] },
+  { japanese: ['おなまえは？'], vietnamese: ['Tên của bạn là gì?'] },
+  { japanese: ['(わたしは)トゥンです'], vietnamese: ['Công việc của bạn là gì?'] },
+  { japanese: ['おしごとは？'], vietnamese: ['Công việc của bạn là gì?'] },
+  { japanese: ['(わたしは)エンジニアです'], vietnamese: ['Công việc của bạn là gì?'] },
+  { japanese: ['よろしくおねがいします。'], vietnamese: ['Rất mong được giúp đỡ'] },
+]
 
 async function playPronunciation(text: string | string[]) {
   try {
