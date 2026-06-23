@@ -25,7 +25,7 @@ export async function playJapanesePronunciation(
     return;
   }
 
-  const ssmlText = `<speak><prosody rate="80%">${encodeXml(text.trim())}</prosody></speak>`;
+  const ssmlText = `<speak><prosody rate="70%">${encodeXml(text.trim())}</prosody></speak>`;
 
   try {
     const command = new SynthesizeSpeechCommand({

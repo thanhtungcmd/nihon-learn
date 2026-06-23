@@ -96,10 +96,12 @@ const vocabularyList: VocabularyItem[] = [
 const questionList: VocabularyItem[] = [
   { japanese: ['はじめまして。'], vietnamese: ['Rất vui được gặp bạn'] },
   { japanese: ['おなまえは？'], vietnamese: ['Tên của bạn là gì?'] },
-  { japanese: ['(わたしは)トゥンです'], vietnamese: ['Công việc của bạn là gì?'] },
+  { japanese: ['(わたしは)トゥンです'], vietnamese: ['Tên tôi là Tùng'] },
   { japanese: ['おしごとは？'], vietnamese: ['Công việc của bạn là gì?'] },
-  { japanese: ['(わたしは)エンジニアです'], vietnamese: ['Công việc của bạn là gì?'] },
-  { japanese: ['よろしくおねがいします。'], vietnamese: ['Rất mong được giúp đỡ'] },
+  { japanese: ['(わたしは)エンジニアです'], vietnamese: ['Công việc của tôi là kỹ sư'] },
+  { japanese: ['ことしはにじゅうななさいです'], vietnamese: ['Năm nay tôi 27 tuổi'] },
+  { japanese: ['ベトナムからきました'], vietnamese: ['Tôi đến từ việt nam'] },
+  { japanese: ['どうぞ よろしく おねがい します。'], vietnamese: ['Rất mong được giúp đỡ'] },
 ]
 
 async function playPronunciation(text: string | string[]) {
