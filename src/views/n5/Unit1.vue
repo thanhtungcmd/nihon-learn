@@ -8,8 +8,15 @@
 			<div class="mt-5 table-responsive">
 				<table class="table table-bordered table-hover mb-0 align-middle rounded-3"
 					style="max-width: 1200px; table-layout: fixed; width: 100%;">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 45%;"></th>
+              <th scope="col" style="width: 45%;"></th>
+              <th scope="col" style="width: 10%;"></th>
+            </tr>
+          </thead>
 					<tbody>
-						<tr v-for="item in vocabularyList" :key="item.japanese.join('-')">
+						<tr v-for="item in vocabularyList" :key="item.japanese?.join('-')">
 							<td>
 								<div v-for="(line, idx) in item.japanese" :key="idx">{{ line }}</div>
 							</td>
@@ -17,7 +24,7 @@
 								<div v-for="(line, idx) in item.vietnamese" :key="idx">{{ line }}</div>
 							</td>
 							<td>
-								<IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese)" />
+								<IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese ?? '')" />
 							</td>
 						</tr>
 					</tbody>
@@ -29,8 +36,15 @@
       <div class="mt-5 table-responsive">
         <table class="table table-bordered table-hover mb-0 align-middle rounded-3"
 					style="max-width: 1200px; table-layout: fixed; width: 100%;">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 45%;"></th>
+              <th scope="col" style="width: 45%;"></th>
+              <th scope="col" style="width: 10%;"></th>
+            </tr>
+          </thead>
           <tbody>
-						<tr v-for="item in questionList" :key="item.japanese.join('-')">
+						<tr v-for="item in questionList" :key="item.japanese?.join('-')">
 							<td>
 								<div v-for="(line, idx) in item.japanese" :key="idx">{{ line }}</div>
 							</td>
@@ -38,7 +52,119 @@
 								<div v-for="(line, idx) in item.vietnamese" :key="idx">{{ line }}</div>
 							</td>
 							<td>
-								<IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese)" />
+								<IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese ?? '')" />
+							</td>
+						</tr>
+					</tbody>
+        </table>
+      </div>
+
+      <div class="mt-5 text">Câu khẳng định</div>
+
+      <div class="mt-5 table-responsive">
+        <table class="table table-bordered table-hover mb-0 align-middle rounded-3"
+					style="max-width: 1200px; table-layout: fixed; width: 100%;">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 45%;"></th>
+              <th scope="col" style="width: 45%;"></th>
+              <th scope="col" style="width: 10%;"></th>
+            </tr>
+          </thead>
+          <tbody>
+						<tr v-for="item in grammarPositiveList" :key="item.japanese?.join('-')">
+							<td>
+								<div v-for="(line, idx) in item.japanese" :key="idx">{{ line }}</div>
+							</td>
+							<td>
+								<div v-for="(line, idx) in item.vietnamese" :key="idx">{{ line }}</div>
+							</td>
+							<td>
+								<IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese ?? '')" />
+							</td>
+						</tr>
+					</tbody>
+        </table>
+      </div>
+
+      <div class="mt-5 text">Câu phủ định</div>
+
+      <div class="mt-5 table-responsive">
+        <table class="table table-bordered table-hover mb-0 align-middle rounded-3"
+					style="max-width: 1200px; table-layout: fixed; width: 100%;">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 45%;"></th>
+              <th scope="col" style="width: 45%;"></th>
+              <th scope="col" style="width: 10%;"></th>
+            </tr>
+          </thead>
+          <tbody>
+						<tr v-for="item in grammarNegativeList" :key="item.japanese?.join('-')">
+							<td>
+								<div v-for="(line, idx) in item.japanese" :key="idx">{{ line }}</div>
+							</td>
+							<td>
+								<div v-for="(line, idx) in item.vietnamese" :key="idx">{{ line }}</div>
+							</td>
+							<td>
+								<IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese ?? '')" />
+							</td>
+						</tr>
+					</tbody>
+        </table>
+      </div>
+
+      <div class="mt-5 text">Câu hỏi có / không?</div>
+
+      <div class="mt-5 table-responsive">
+        <table class="table table-bordered table-hover mb-0 align-middle rounded-3"
+					style="max-width: 1200px; table-layout: fixed; width: 100%;">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 45%;"></th>
+              <th scope="col" style="width: 45%;"></th>
+              <th scope="col" style="width: 10%;"></th>
+            </tr>
+          </thead>
+          <tbody>
+						<tr v-for="item in grammarYesNoList" :key="item.japanese?.join('-')">
+							<td>
+								<div v-for="(line, idx) in item.japanese" :key="idx">{{ line }}</div>
+							</td>
+							<td>
+								<div v-for="(line, idx) in item.vietnamese" :key="idx">{{ line }}</div>
+							</td>
+							<td>
+								<IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese ?? '')" />
+							</td>
+						</tr>
+					</tbody>
+        </table>
+      </div>
+
+      <div class="mt-5 text">Câu hỏi ai đấy?</div>
+
+      <div class="mt-5 table-responsive">
+        <table class="table table-bordered table-hover mb-0 align-middle rounded-3"
+					style="max-width: 1200px; table-layout: fixed; width: 100%;">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 45%;"></th>
+              <th scope="col" style="width: 45%;"></th>
+              <th scope="col" style="width: 10%;"></th>
+            </tr>
+          </thead>
+          <tbody>
+						<tr v-for="item in grammarWhoList" :key="item.japanese?.join('-')">
+							<td>
+								<div v-for="(line, idx) in item.japanese" :key="idx">{{ line }}</div>
+							</td>
+							<td>
+								<div v-for="(line, idx) in item.vietnamese" :key="idx">{{ line }}</div>
+							</td>
+							<td>
+								<IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese ?? '')" />
 							</td>
 						</tr>
 					</tbody>
@@ -54,8 +180,8 @@ import { IconVolume } from '@tabler/icons-vue';
 import { playJapanesePronunciation } from '@/services/pollyService';
 
 interface VocabularyItem {
-  japanese: string[];
-  vietnamese: string[];
+  japanese?: string[];
+  vietnamese?: string[];
 }
 
 const vocabularyList: VocabularyItem[] = [
@@ -78,7 +204,7 @@ const vocabularyList: VocabularyItem[] = [
   { japanese: ['びょういん'], vietnamese: ['bệnh viện'] },
   { japanese: ['だれ', '(どなた)'], vietnamese: ['Ai?', 'どなた cách nói lịch sự', 'だれ cách nói thông thường'] },
   { japanese: ['～さい'], vietnamese: ['~ tuổi'] },
-  { japanese: ['なんさい', '(ないくつ)'], vietnamese: ['bao nhiêu tuổi?', 'なんさい nói thông thường', 'ないくつ nói lịch sự'] },
+  { japanese: ['なんさい', '(おいくつ)'], vietnamese: ['bao nhiêu tuổi?', 'なんさい nói thông thường', 'ないくつ nói lịch sự'] },
   { japanese: ['はい'], vietnamese: ['vâng'] },
   { japanese: ['いいえ'], vietnamese: ['không'] },
   { japanese: ['はじめまして'], vietnamese: ['rất hân hạnh được gặp anh chị'] },
@@ -103,6 +229,45 @@ const questionList: VocabularyItem[] = [
   { japanese: ['ベトナムからきました'], vietnamese: ['Tôi đến từ việt nam'] },
   { japanese: ['どうぞ よろしく おねがい します。'], vietnamese: ['Rất mong được giúp đỡ'] },
 ]
+
+const grammarPositiveList: VocabularyItem[] = [
+  { japanese: ['やまださんはにほんじんです。'], vietnamese: ['Yamada-san là người Nhật'] },
+  { japanese: ['ワットさんはイギリスじんです。'], vietnamese: ['Watt-san là người Anh'] },
+  { japanese: ['タワボンさんはタイじんです。'], vietnamese: ['Tawabon-san là người Thái'] },
+  { japanese: ['シュミットさんはドイツじんです。'], vietnamese: ['Schmitt-san là người Đức'] },
+  { japanese: ['やまださんはぎんこういんです。'], vietnamese: ['Yamada-san là nhân viên ngân hàng'] },
+  { japanese: ['ワットさんはせんせいです。'], vietnamese: ['Watt-san là giáo viên'] },
+  { japanese: ['タワボンさんはがくせいです。'], vietnamese: ['Tawabon-san là học sinh'] },
+  { japanese: ['シュミットさんはかいしゃいんです。'], vietnamese: ['Schmitt-san là nhân viên công ty'] },
+]
+
+const grammarNegativeList: VocabularyItem[] = [
+  { japanese: ['やまださんはがくせいじゃありません。'], vietnamese: ['Yamada-san không phải là học sinh'] },
+  { japanese: ['ワットさんはドイツじんじゃありません。'], vietnamese: ['Watt-san không phải là người Đức'] },
+  { japanese: ['タワボンさんはせんせいじゃありません。'], vietnamese: ['Tawabon-san không phải là giáo viên'] },
+  { japanese: ['シュミットさんはアメリカじんじゃありません。'], vietnamese: ['Schmitt-san không phải là người Mỹ'] },
+]
+
+const grammarYesNoList: VocabularyItem[] = [
+  { japanese: [
+    'やまださんはぎんこういんですか。',
+    'はい、ぎんこういんです。',
+  ] },
+  { japanese: [
+    'ワットさんはかいしゃいんですか。',
+    'いいえ、かいしゃいんじゃありません。',
+  ] },
+  { japanese: [
+    'タワボンさんはせんせいですか。',
+    'いいえ、せんせいじゃありません。',
+  ] },
+  { japanese: [
+    'シュミットさんはドイツじんですか。',
+    'はい、ドイツじんです。',
+  ] },
+]
+
+
 
 async function playPronunciation(text: string | string[]) {
   try {
