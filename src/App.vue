@@ -1,16 +1,39 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import { useSelectionActions } from '@/composables/useSelectionActions';
+import { findTranslationForText } from '@/services/translationRegistry';
 
-const { showContextMenu, contextMenuStyle, runSelectedAction } = useSelectionActions();
+const { showContextMenu, contextMenuStyle, selectedText, runSelectedAction } = useSelectionActions();
+const showTranslation = ref(false);
+const translationText = ref('');
+
+function showVietnameseMeaning() {
+  const selection = selectedText.value || window.getSelection()?.toString().trim() || '';
+  if (!selection) return;
+
+  const translatedMeaning = findTranslationForText(selection);
+  translationText.value = translatedMeaning || selection;
+  showTranslation.value = true;
+  showContextMenu.value = false;
+}
 </script>
 
 <template>
   <main class="container py-4 py-md-5">
     <div v-if="showContextMenu" class="context-menu" :style="contextMenuStyle">
-      <button type="button" class="btn btn-sm btn-outline-primary w-100" @click="() => runSelectedAction()">
+      <button type="button" class="btn btn-sm btn-outline-primary w-100 mb-2" @click="() => runSelectedAction()">
         Phát âm
       </button>
+      <button type="button" class="btn btn-sm btn-outline-success w-100" @click="showVietnameseMeaning">
+        Hiện tiếng Việt
+      </button>
     </div>
+
+    <div v-if="showTranslation" class="translation-card">
+      <div class="fw-semibold mb-1">Tiếng Việt</div>
+      <div>{{ translationText }}</div>
+    </div>
+
     <router-view />
   </main>
 </template>
@@ -52,5 +75,20 @@ const { showContextMenu, contextMenuStyle, runSelectedAction } = useSelectionAct
 
   .context-menu .btn {
     text-align: left;
+  }
+
+  .translation-card {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    z-index: 2100;
+    max-width: 320px;
+    background: white;
+    border: 1px solid #d0d7de;
+    border-radius: 10px;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.16);
+    padding: 12px 14px;
+    font-size: 16px;
+    line-height: 1.5;
   }
 </style>

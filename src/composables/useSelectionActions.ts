@@ -89,6 +89,7 @@ export function useSelectionActions(options: UseSelectionActionsOptions = {}) {
   return {
     showContextMenu,
     contextMenuStyle,
+    selectedText,
     closeContextMenu,
     handleContextMenu,
     runSelectedAction,

@@ -10,8 +10,7 @@
 					style="max-width: 1200px; table-layout: fixed; width: 100%;">
           <thead>
             <tr>
-              <th scope="col" style="width: 45%;"></th>
-              <th scope="col" style="width: 45%;"></th>
+              <th scope="col" style="width: 90%;"></th>
               <th scope="col" style="width: 10%;"></th>
             </tr>
           </thead>
@@ -19,9 +18,6 @@
 						<tr v-for="item in vocabularyList" :key="item.japanese?.join('-')">
 							<td>
 								<div v-for="(line, idx) in item.japanese" :key="idx">{{ line }}</div>
-							</td>
-							<td>
-								<div v-for="(line, idx) in item.vietnamese" :key="idx">{{ line }}</div>
 							</td>
 							<td>
 								<IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese ?? '')" />
@@ -38,8 +34,7 @@
 					style="max-width: 1200px; table-layout: fixed; width: 100%;">
           <thead>
             <tr>
-              <th scope="col" style="width: 45%;"></th>
-              <th scope="col" style="width: 45%;"></th>
+              <th scope="col" style="width: 90%;"></th>
               <th scope="col" style="width: 10%;"></th>
             </tr>
           </thead>
@@ -47,9 +42,6 @@
 						<tr v-for="item in questionList" :key="item.japanese?.join('-')">
 							<td>
 								<div v-for="(line, idx) in item.japanese" :key="idx">{{ line }}</div>
-							</td>
-							<td>
-								<div v-for="(line, idx) in item.vietnamese" :key="idx">{{ line }}</div>
 							</td>
 							<td>
 								<IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese ?? '')" />
@@ -66,8 +58,7 @@
 					style="max-width: 1200px; table-layout: fixed; width: 100%;">
           <thead>
             <tr>
-              <th scope="col" style="width: 45%;"></th>
-              <th scope="col" style="width: 45%;"></th>
+              <th scope="col" style="width: 90%;"></th>
               <th scope="col" style="width: 10%;"></th>
             </tr>
           </thead>
@@ -75,9 +66,6 @@
 						<tr v-for="item in grammarPositiveList" :key="item.japanese?.join('-')">
 							<td>
 								<div v-for="(line, idx) in item.japanese" :key="idx">{{ line }}</div>
-							</td>
-							<td>
-								<div v-for="(line, idx) in item.vietnamese" :key="idx">{{ line }}</div>
 							</td>
 							<td>
 								<IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese ?? '')" />
@@ -94,8 +82,7 @@
 					style="max-width: 1200px; table-layout: fixed; width: 100%;">
           <thead>
             <tr>
-              <th scope="col" style="width: 45%;"></th>
-              <th scope="col" style="width: 45%;"></th>
+              <th scope="col" style="width: 90%;"></th>
               <th scope="col" style="width: 10%;"></th>
             </tr>
           </thead>
@@ -103,9 +90,6 @@
 						<tr v-for="item in grammarNegativeList" :key="item.japanese?.join('-')">
 							<td>
 								<div v-for="(line, idx) in item.japanese" :key="idx">{{ line }}</div>
-							</td>
-							<td>
-								<div v-for="(line, idx) in item.vietnamese" :key="idx">{{ line }}</div>
 							</td>
 							<td>
 								<IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese ?? '')" />
@@ -122,8 +106,7 @@
 					style="max-width: 1200px; table-layout: fixed; width: 100%;">
           <thead>
             <tr>
-              <th scope="col" style="width: 45%;"></th>
-              <th scope="col" style="width: 45%;"></th>
+              <th scope="col" style="width: 90%;"></th>
               <th scope="col" style="width: 10%;"></th>
             </tr>
           </thead>
@@ -131,9 +114,6 @@
 						<tr v-for="item in grammarYesNoList" :key="item.japanese?.join('-')">
 							<td>
 								<div v-for="(line, idx) in item.japanese" :key="idx">{{ line }}</div>
-							</td>
-							<td>
-								<div v-for="(line, idx) in item.vietnamese" :key="idx">{{ line }}</div>
 							</td>
 							<td>
 								<IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese ?? '')" />
@@ -150,8 +130,7 @@
 					style="max-width: 1200px; table-layout: fixed; width: 100%;">
           <thead>
             <tr>
-              <th scope="col" style="width: 45%;"></th>
-              <th scope="col" style="width: 45%;"></th>
+              <th scope="col" style="width: 90%;"></th>
               <th scope="col" style="width: 10%;"></th>
             </tr>
           </thead>
@@ -159,9 +138,6 @@
 						<tr v-for="item in grammarWhoList" :key="item.japanese?.join('-')">
 							<td>
 								<div v-for="(line, idx) in item.japanese" :key="idx">{{ line }}</div>
-							</td>
-							<td>
-								<div v-for="(line, idx) in item.vietnamese" :key="idx">{{ line }}</div>
 							</td>
 							<td>
 								<IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese ?? '')" />
@@ -179,6 +155,7 @@
 import { IconVolume, IconEye } from '@tabler/icons-vue';
 import { useSelectionActions } from '@/composables/useSelectionActions';
 import { playJapanesePronunciation } from '@/services/pollyService';
+import { registerTranslationEntries } from '@/services/translationRegistry';
 
 interface VocabularyItem {
   japanese?: string[];
@@ -306,6 +283,15 @@ const grammarWhoList: VocabularyItem[] = [
     'サントスさんです。,ブラジルエアーのしゃいんです。',
   ] },
 ]
+
+registerTranslationEntries([
+  ...vocabularyList,
+  ...questionList,
+  ...grammarPositiveList,
+  ...grammarNegativeList,
+  ...grammarYesNoList,
+  ...grammarWhoList,
+]);
 
 async function playPronunciation(text: string | string[]) {
   try {
