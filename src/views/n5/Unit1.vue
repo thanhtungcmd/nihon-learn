@@ -176,7 +176,7 @@
 </template>
 
 <script setup lang="ts">
-import { IconVolume } from '@tabler/icons-vue';
+import { IconVolume, IconEye } from '@tabler/icons-vue';
 import { playJapanesePronunciation } from '@/services/pollyService';
 
 interface VocabularyItem {
@@ -252,22 +252,54 @@ const grammarYesNoList: VocabularyItem[] = [
   { japanese: [
     'やまださんはぎんこういんですか。',
     'はい、ぎんこういんです。',
+  ], vietnamese: [
+    'Anh Yamada là nhân viên ngân hàng phải không?',
+    'Có, anh ấy là nhân viên ngân hàng.',
   ] },
   { japanese: [
     'ワットさんはかいしゃいんですか。',
     'いいえ、かいしゃいんじゃありません。',
+  ], vietnamese: [
+    'Anh Watt là nhân viên công ty phải không?',
+    'Không, anh ấy không phải nhân viên công ty.',
   ] },
   { japanese: [
     'タワボンさんはせんせいですか。',
     'いいえ、せんせいじゃありません。',
+  ], vietnamese: [
+    'Anh Tawabon là giáo viên phải không?',
+    'Không, anh ấy không phải giáo viên.',
   ] },
   { japanese: [
     'シュミットさんはドイツじんですか。',
     'はい、ドイツじんです。',
+  ], vietnamese: [
+    'Anh Schmitt là người Đức phải không?',
+    'Có, anh ấy là người Đức.',
   ] },
 ]
 
-
+const grammarWhoList: VocabularyItem[] = [
+  { japanese: [
+    'あのかたはどなたですか。',
+    'イーさんです。AKCのけんきゅうしゃです。',
+  ], vietnamese: [
+    'Người kia là ai vậy?',
+    'Anh ấy là anh I. Anh ấy là nhà nghiên cứu của AKC.',
+  ] },
+  { japanese: [
+    'あのかたはどなたですか。',
+    'ワンさんです。こうべびょういんのいしゃです。',
+  ] },
+  { japanese: [
+    'あのかたはどなたですか。',
+    'カリナさんです。ふじだいがくのがくせいです。',
+  ] },
+  { japanese: [
+    'あのかたはどなたですか。',
+    'サントスさんです。,ブラジルエアーのしゃいんです。',
+  ] },
+]
 
 async function playPronunciation(text: string | string[]) {
   try {
