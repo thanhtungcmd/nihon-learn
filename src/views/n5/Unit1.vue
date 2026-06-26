@@ -1,5 +1,10 @@
 <template>
 	<section class="card shadow-sm border-0">
+		<div v-if="showContextMenu" class="context-menu" :style="contextMenuStyle">
+			<button type="button" class="btn btn-sm btn-outline-primary w-100" @click="handleTranslateSelection">
+				Dịch / Phát âm
+			</button>
+		</div>
 		<div class="card-body p-4 p-md-5">
 			<h1 class="mt-3 mb-3">Lesson 1</h1>
 
@@ -177,12 +182,18 @@
 
 <script setup lang="ts">
 import { IconVolume, IconEye } from '@tabler/icons-vue';
+import { useSelectionActions } from '@/composables/useSelectionActions';
 import { playJapanesePronunciation } from '@/services/pollyService';
 
 interface VocabularyItem {
   japanese?: string[];
   vietnamese?: string[];
 }
+
+const { showContextMenu, contextMenuStyle, runSelectedAction } = useSelectionActions({
+  onAction: (selectedText) => void playPronunciation(selectedText),
+  shortcutKey: 'k',
+});
 
 const vocabularyList: VocabularyItem[] = [
   { japanese: ['わたし'], vietnamese: ['tôi'] },
@@ -301,6 +312,10 @@ const grammarWhoList: VocabularyItem[] = [
   ] },
 ]
 
+function handleTranslateSelection() {
+  runSelectedAction();
+}
+
 async function playPronunciation(text: string | string[]) {
   try {
     const textToPlay = Array.isArray(text) ? text.join('') : text;
@@ -314,6 +329,21 @@ async function playPronunciation(text: string | string[]) {
 <style scoped>
 rt {
 	font-size: 24px;
+}
+
+.context-menu {
+	position: fixed;
+	z-index: 2000;
+	background: white;
+	border: 1px solid #d0d7de;
+	border-radius: 8px;
+	box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+	padding: 6px;
+	min-width: 150px;
+}
+
+.context-menu .btn {
+	text-align: left;
 }
 
 .icon-volume {
