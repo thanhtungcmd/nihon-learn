@@ -297,14 +297,23 @@ const grammarWhoList: VocabularyItem[] = [
   { japanese: [
     'あのかたはどなたですか。',
     'ワットさんです。こうべびょういんのいしゃです。',
+  ], vietnamese: [
+    'Người kia là ai vậy?',
+    'Anh ấy là anh Watt. Anh ấy là bác sĩ của bệnh viện Kobe.',
   ] },
   { japanese: [
     'あのかたはどなたですか。',
     'カリナさんです。ふじだいがくのがくせいです。',
+  ], vietnamese: [
+    'Người kia là ai vậy?',
+    'Cô ấy là chị Karina. Cô ấy là sinh viên của trường đại học Fuji.',
   ] },
   { japanese: [
     'あのかたはどなたですか。',
-    'サントスさんです。,ブラジルエアーのしゃいんです。',
+    'サントスさんです。ブラジルエアーのしゃいんです。',
+  ], vietnamese: [
+    'Người kia là ai vậy?',
+    'Anh ấy là anh Santos. Anh ấy là nhân viên của hãng hàng không Brazil Air.',
   ] },
 ]
 
@@ -312,18 +321,30 @@ const grammarAgeList: VocabularyItem[] = [
   { japanese: [
     'やまださんはなんさいですか。',
     'さんじゅうはつさいです。',
+  ], vietnamese: [
+    'Anh/chị Yamada bao nhiêu tuổi?',
+    '33 tuổi.',
   ] },
   { japanese: [
     'ワットさんはなんさいですか。',
     'よんじゅうごさいです。',
+  ], vietnamese: [
+    'Anh Watt bao nhiêu tuổi?',
+    '45 tuổi.',
   ] },
   { japanese: [
     'タワボンさんはなんさいですか。',
     'じゅうきゅうさいです。',
+  ], vietnamese: [
+    'Anh Tawabon bao nhiêu tuổi?',
+    '19 tuổi.',
   ] },
   { japanese: [
     'シュミットさんはなんさいですか。',
     'はたちです。',
+  ], vietnamese: [
+    'Anh Schmitt bao nhiêu tuổi?',
+    '20 tuổi.',
   ] },
 ]
 
