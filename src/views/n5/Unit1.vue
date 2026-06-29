@@ -176,7 +176,7 @@
 </template>
 
 <script setup lang="ts">
-import { IconVolume, IconEye } from '@tabler/icons-vue';
+import { IconVolume } from '@tabler/icons-vue';
 import { useSelectionActions } from '@/composables/useSelectionActions';
 import { playJapanesePronunciation } from '@/services/pollyService';
 import { registerTranslationEntries } from '@/services/translationRegistry';

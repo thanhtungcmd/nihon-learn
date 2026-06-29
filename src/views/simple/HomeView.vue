@@ -14,6 +14,7 @@
         <router-link class="ms-5" to="/hello">- Chào hỏi cơ bản</router-link>
         <span>N5</span>
         <router-link class="ms-5" to="/n5/unit1">- Unit 1</router-link>
+        <router-link class="ms-5" to="/n5/unit2">- Unit 1</router-link>
       </div>
     </div>
   </section>
