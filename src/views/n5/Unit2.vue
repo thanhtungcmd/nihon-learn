@@ -101,6 +101,124 @@
 
       <div class="mt-5 text">Câu hỏi cái này hay cái kia?</div>
 
+      <div class="mt-5 table-responsive">
+        <table class="table table-bordered table-hover mb-0 align-middle rounded-3"
+					style="max-width: 1200px; table-layout: fixed; width: 100%;">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 90%;"></th>
+              <th scope="col" style="width: 10%;"></th>
+            </tr>
+          </thead>
+          <tbody>
+						<tr v-for="item in questionOrList" :key="item.japanese?.join('-')">
+							<td>
+								<div v-for="(line, idx) in item.japanese" :key="idx">{{ line }}</div>
+							</td>
+							<td>
+								<IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese ?? '')" />
+							</td>
+						</tr>
+					</tbody>
+        </table>
+      </div>
+
+      <div class="mt-5 text">Câu hỏi cái này nói về nội dung gì?</div>
+
+      <div class="mt-5 table-responsive">
+        <table class="table table-bordered table-hover mb-0 align-middle rounded-3"
+					style="max-width: 1200px; table-layout: fixed; width: 100%;">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 90%;"></th>
+              <th scope="col" style="width: 10%;"></th>
+            </tr>
+          </thead>
+          <tbody>
+						<tr v-for="item in questionWhatContentList" :key="item.japanese?.join('-')">
+							<td>
+								<div v-for="(line, idx) in item.japanese" :key="idx">{{ line }}</div>
+							</td>
+							<td>
+								<IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese ?? '')" />
+							</td>
+						</tr>
+					</tbody>
+        </table>
+      </div>
+
+      <div class="mt-5 text">Câu hỏi cái này của ai?</div>
+
+      <div class="mt-5 table-responsive">
+        <table class="table table-bordered table-hover mb-0 align-middle rounded-3"
+					style="max-width: 1200px; table-layout: fixed; width: 100%;">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 90%;"></th>
+              <th scope="col" style="width: 10%;"></th>
+            </tr>
+          </thead>
+          <tbody>
+						<tr v-for="item in questionWhomList" :key="item.japanese?.join('-')">
+							<td>
+								<div v-for="(line, idx) in item.japanese" :key="idx">{{ line }}</div>
+							</td>
+							<td>
+								<IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese ?? '')" />
+							</td>
+						</tr>
+					</tbody>
+        </table>
+      </div>
+
+      <div class="mt-5 text">Câu hỏi có hay không phải của ai đó?</div>
+
+      <div class="mt-5 table-responsive">
+        <table class="table table-bordered table-hover mb-0 align-middle rounded-3"
+					style="max-width: 1200px; table-layout: fixed; width: 100%;">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 90%;"></th>
+              <th scope="col" style="width: 10%;"></th>
+            </tr>
+          </thead>
+          <tbody>
+						<tr v-for="item in questionWhomYesNoList" :key="item.japanese?.join('-')">
+							<td>
+								<div v-for="(line, idx) in item.japanese" :key="idx">{{ line }}</div>
+							</td>
+							<td>
+								<IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese ?? '')" />
+							</td>
+						</tr>
+					</tbody>
+        </table>
+      </div>
+
+      <div class="mt-5 text">Câu hỏi đồ vật này của ai (loại 2)?</div>
+
+      <div class="mt-5 table-responsive">
+        <table class="table table-bordered table-hover mb-0 align-middle rounded-3"
+					style="max-width: 1200px; table-layout: fixed; width: 100%;">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 90%;"></th>
+              <th scope="col" style="width: 10%;"></th>
+            </tr>
+          </thead>
+          <tbody>
+						<tr v-for="item in questionWhomTwoList" :key="item.japanese?.join('-')">
+							<td>
+								<div v-for="(line, idx) in item.japanese" :key="idx">{{ line }}</div>
+							</td>
+							<td>
+								<IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese ?? '')" />
+							</td>
+						</tr>
+					</tbody>
+        </table>
+      </div>
+
     </div>
 
   </section>
@@ -156,27 +274,39 @@ const vocabularyList: VocabularyItem[] = [
 ]
 
 const presentList: VocabularyItem[] = [
-  { japanese: ['これはほんです。'] },
-  { japanese: ['それはかぎです。'] },
-  { japanese: ['あれはテレビです。'] },
+  { japanese: ['これはほんです。'], vietnamese: ['Đây là cuốn sách.'] },
+  { japanese: ['それはかぎです。'], vietnamese: ['Cái đó là chìa khóa.'] },
+  { japanese: ['あれはテレビです。'], vietnamese: ['Kia là chiếc tivi.'] },
 ]
 
 const questionList: VocabularyItem[] = [
   { japanese: [
     'これはとけいですか。',
     'はい、とけいです。',
+  ], vietnamese: [
+    'Đây là đồng hồ phải không?',
+    'Vâng, là đồng hồ.',
   ] },
   { japanese: [
     'これはラジオですか。',
     'いいえ、カメラです。',
+  ], vietnamese: [
+    'Đây là radio phải không?',
+    'Không, là máy ảnh.',
   ] },
   { japanese: [
     'これはえんぴつですか。',
     'いいえ、ボールペンです。',
+  ], vietnamese: [
+    'Đây là bút chì phải không?',
+    'Không, là bút bi.',
   ] },
   { japanese: [
     'これはいすですか。',
     'はい、いすです。',
+  ], vietnamese: [
+    'Đây là ghế phải không?',
+    'Vâng, là ghế.',
   ] },
 ]
 
@@ -184,23 +314,101 @@ const questionWhatList: VocabularyItem[] = [
   { japanese: [
     'これはなんですか。',
     'とけいです。',
+  ], vietnamese: [
+    'Đây là cái gì?',
+    'Là đồng hồ.',
   ] },
   { japanese: [
     'これはなんですか。',
     'カメラです。',
+  ], vietnamese: [
+    'Đây là cái gì?',
+    'Là máy ảnh.',
   ] },
   { japanese: [
     'これはなんですか。',
     'ボールペンです。',
+  ], vietnamese: [
+    'Đây là cái gì?',
+    'Là bút bi.',
   ] },
   { japanese: [
     'これはなんですか。',
     'いすです。',
+  ], vietnamese: [
+    'Đây là cái gì?',
+    'Là ghế.',
   ] },
 ]
 
+const questionOrList: VocabularyItem[] = [
+  { japanese: [
+    'これはほんですか、ざつしですか。',
+    'ほんです。',
+  ], vietnamese: [
+    'Đây là sách hay tạp chí?',
+    'Là sách.',
+  ] },
+]
+
+const questionWhatContentList: VocabularyItem[] = [
+  { japanese: [
+    'これはなんのざつしですか。',
+    'くるまのざつしです。',
+  ], vietnamese: [
+    'Đây là tạp chí gì?',
+    'Là tạp chí về ô tô.',
+  ] },
+  { japanese: [
+    'これはなんのほんですか。',
+    'にほんごのほんです。',
+  ], vietnamese: [
+    'Đây là cuốn sách gì?',
+    'Là cuốn sách tiếng Nhật.',
+  ] },
+]
+
+const questionWhomList: VocabularyItem[] = [
+  { japanese: [
+    'これはだれのかばんですか。',
+    'やまださんのかばんです。',
+  ], vietnamese: [
+    'Cái cặp này của ai?',
+    'Là cặp của anh Yamada.',
+  ] },
+  { japanese: [
+    'これはだれのかさですか。',
+    'さとうさんのかさです。',
+  ], vietnamese: [
+    'Chiếc ô này của ai?',
+    'Là ô của anh Sato.',
+  ] },
+]
+
+const questionWhomYesNoList: VocabularyItem[] = [
+  { japanese: [
+    'これはさとうさんのですか。',
+    'はい、さとうさんのです。',
+  ], vietnamese: [
+    'Đây có phải của anh Sato không?',
+    'Có, là của anh Sato.',
+  ] },
+]
+
+const questionWhomTwoList: VocabularyItem[] = [
+  { japanese: [
+    'このかばんはだれのですか。',
+    'やまださんのです。',
+  ], vietnamese: [
+    'Chiếc cặp này của ai?',
+    'Của anh Yamada.',
+  ] },
+]
+
+
 registerTranslationEntries([
   ...vocabularyList,
+  ...questionWhomTwoList,
 ]);
 
 useSelectionActions({
