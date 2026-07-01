@@ -26,7 +26,83 @@
           </tbody>
         </table>
       </div>
+
+      <div class="mt-5 text">Hội thoại</div>
+
+      <div class="mt-5 table-responsive">
+        <table class="table table-bordered table-hover mb-0 align-middle rounded-3"
+					style="max-width: 1200px; table-layout: fixed; width: 100%;">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 90%;"></th>
+              <th scope="col" style="width: 10%;"></th>
+            </tr>
+          </thead>
+          <tbody>
+						<tr v-for="item in presentList" :key="item.japanese?.join('-')">
+							<td>
+								<div v-for="(line, idx) in item.japanese" :key="idx">{{ line }}</div>
+							</td>
+							<td>
+								<IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese ?? '')" />
+							</td>
+						</tr>
+					</tbody>
+        </table>
+      </div>
+
+      <div class="mt-5 text">Câu hỏi có không</div>
+
+      <div class="mt-5 table-responsive">
+        <table class="table table-bordered table-hover mb-0 align-middle rounded-3"
+					style="max-width: 1200px; table-layout: fixed; width: 100%;">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 90%;"></th>
+              <th scope="col" style="width: 10%;"></th>
+            </tr>
+          </thead>
+          <tbody>
+						<tr v-for="item in questionList" :key="item.japanese?.join('-')">
+							<td>
+								<div v-for="(line, idx) in item.japanese" :key="idx">{{ line }}</div>
+							</td>
+							<td>
+								<IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese ?? '')" />
+							</td>
+						</tr>
+					</tbody>
+        </table>
+      </div>
+
+      <div class="mt-5 text">Câu hỏi cái gì đây?</div>
+
+      <div class="mt-5 table-responsive">
+        <table class="table table-bordered table-hover mb-0 align-middle rounded-3"
+					style="max-width: 1200px; table-layout: fixed; width: 100%;">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 90%;"></th>
+              <th scope="col" style="width: 10%;"></th>
+            </tr>
+          </thead>
+          <tbody>
+						<tr v-for="item in questionWhatList" :key="item.japanese?.join('-')">
+							<td>
+								<div v-for="(line, idx) in item.japanese" :key="idx">{{ line }}</div>
+							</td>
+							<td>
+								<IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese ?? '')" />
+							</td>
+						</tr>
+					</tbody>
+        </table>
+      </div>
+
+      <div class="mt-5 text">Câu hỏi cái này hay cái kia?</div>
+
     </div>
+
   </section>
 </template>
 
@@ -77,6 +153,50 @@ const vocabularyList: VocabularyItem[] = [
   { japanese: ['どうぞ'], vietnamese: ['xin mời'] },
   { japanese: ['そうですか'], vietnamese: ['thế à'] },
   { japanese: ['ちがいます'], vietnamese: ['không đúng'] },
+]
+
+const presentList: VocabularyItem[] = [
+  { japanese: ['これはほんです。'] },
+  { japanese: ['それはかぎです。'] },
+  { japanese: ['あれはテレビです。'] },
+]
+
+const questionList: VocabularyItem[] = [
+  { japanese: [
+    'これはとけいですか。',
+    'はい、とけいです。',
+  ] },
+  { japanese: [
+    'これはラジオですか。',
+    'いいえ、カメラです。',
+  ] },
+  { japanese: [
+    'これはえんぴつですか。',
+    'いいえ、ボールペンです。',
+  ] },
+  { japanese: [
+    'これはいすですか。',
+    'はい、いすです。',
+  ] },
+]
+
+const questionWhatList: VocabularyItem[] = [
+  { japanese: [
+    'これはなんですか。',
+    'とけいです。',
+  ] },
+  { japanese: [
+    'これはなんですか。',
+    'カメラです。',
+  ] },
+  { japanese: [
+    'これはなんですか。',
+    'ボールペンです。',
+  ] },
+  { japanese: [
+    'これはなんですか。',
+    'いすです。',
+  ] },
 ]
 
 registerTranslationEntries([
