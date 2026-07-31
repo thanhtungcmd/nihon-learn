@@ -119,7 +119,30 @@
         </table>
       </div>
 
-      <div class="mt-5 text">Câu hỏi hành động từ mấy giờ đến mấy giờ?</div>
+      <div class="mt-5 text">Câu hỏi bạn làm gì lúc mấy giờ?</div>
+      <div class="mt-5 table-responsive">
+        <table class="table table-bordered table-hover mb-0 align-middle rounded-3"
+          style="max-width: 1200px; table-layout: fixed; width: 100%;">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 90%;"></th>
+              <th scope="col" style="width: 10%;"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="item in actionQuestionTimeList" :key="item.japanese?.join('-')">
+              <td>
+                <div v-for="(line, idx) in item.japanese" :key="idx">{{ line }}</div>
+              </td>
+              <td>
+                <IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese ?? '')" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mt-5 text">Câu hỏi bạn làm gì từ mấy giờ đến mấy giờ?</div>
       <div class="mt-5 table-responsive">
         <table class="table table-bordered table-hover mb-0 align-middle rounded-3"
           style="max-width: 1200px; table-layout: fixed; width: 100%;">
@@ -131,6 +154,52 @@
           </thead>
           <tbody>
             <tr v-for="item in fromtoActionQuestionList" :key="item.japanese?.join('-')">
+              <td>
+                <div v-for="(line, idx) in item.japanese" :key="idx">{{ line }}</div>
+              </td>
+              <td>
+                <IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese ?? '')" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mt-5 text">Tôi đang làm gì?</div>
+      <div class="mt-5 table-responsive">
+        <table class="table table-bordered table-hover mb-0 align-middle rounded-3"
+          style="max-width: 1200px; table-layout: fixed; width: 100%;">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 90%;"></th>
+              <th scope="col" style="width: 10%;"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="item in stateActionList" :key="item.japanese?.join('-')">
+              <td>
+                <div v-for="(line, idx) in item.japanese" :key="idx">{{ line }}</div>
+              </td>
+              <td>
+                <IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese ?? '')" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mt-5 text">Câu hỏi có không bạn đang làm gì?</div>
+      <div class="mt-5 table-responsive">
+        <table class="table table-bordered table-hover mb-0 align-middle rounded-3"
+          style="max-width: 1200px; table-layout: fixed; width: 100%;">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 90%;"></th>
+              <th scope="col" style="width: 10%;"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="item in actionYesNoQuestionList" :key="item.japanese?.join('-')">
               <td>
                 <div v-for="(line, idx) in item.japanese" :key="idx">{{ line }}</div>
               </td>
@@ -266,7 +335,7 @@ const fromtoQuestionList: VocabularyItem[] = [
   ], vietnamese: [''] },
 ];
 
-const fromtoActionQuestionList: VocabularyItem[] = [
+const actionQuestionTimeList: VocabularyItem[] = [
   { japanese: [
     'まいばんなんじにねますか。',
     '１１じにねます。'
@@ -285,13 +354,68 @@ const fromtoActionQuestionList: VocabularyItem[] = [
   ], vietnamese: [''] },
 ];
 
+const fromtoActionQuestionList: VocabularyItem[] = [
+  { japanese: [
+    'まいにちなんじからなんじまではたらきますか。',
+    '９じはんから５じはんまではたらきます。'
+  ], vietnamese: [''] },
+  { japanese: [
+    'ひるなんじからなんじまでやすみますか。',
+    '１２じから１じまでやすみます。'
+  ], vietnamese: [''] },
+  { japanese: [
+    'どようびなんじからなんじまではたらきますか。',
+    '９じから２じまではたらきます。'
+  ], vietnamese: [''] },
+  { japanese: [
+    'まいあさなんじからなんじまでべんきょうしますか。',
+    '７じから８じまでべんきょうします。'
+  ], vietnamese: [''] },
+]
+
+const stateActionList: VocabularyItem[] = [
+  { japanese: [
+    'まいにちべんきょうします。',
+  ], vietnamese: [''] },
+  { japanese: [
+    'きのうのばんはたらきました。',
+  ], vietnamese: [''] },
+  { japanese: [
+    'あさってべんきょうします。',
+  ], vietnamese: [''] },
+  { japanese: [
+    'おとといはたらきました。',
+  ], vietnamese: [''] },
+]
+
+const actionYesNoQuestionList: VocabularyItem[] = [
+  { japanese: [
+    'あさってはたらきますか。',
+    'いいえ、はたらきません。'
+  ], vietnamese: [''] },
+  { japanese: [
+    'まいばんべんきょうしますか。',
+    'はい、べんきょうします。'
+  ], vietnamese: [''] },
+  { japanese: [
+    'きのうのばんべんきょうしましたか。',
+    'はい、べんきょうしました。'
+  ], vietnamese: [''] },
+  { japanese: [
+    'きのうはたらきましたか。',
+    'いいえ、はたらきませんでした。'
+  ], vietnamese: [''] },
+]
+
 registerTranslationEntries([
   ...vocabularyList,
   ...timeList,
   ...whereTimeQuestionList,
   ...dateQuestionList,
   ...fromtoQuestionList,
+  ...actionQuestionTimeList,
   ...fromtoActionQuestionList,
+  ...actionYesNoQuestionList,
 ]);
 
 useSelectionActions({
