@@ -282,129 +282,129 @@ const whereTimeQuestionList: VocabularyItem[] = [
   { japanese: [
     'ペキンはいまなんじですか。',
     'ごご６じです。'
-  ], vietnamese: [''] },
+  ], vietnamese: ['Bắc Kinh bây giờ mấy giờ?', '6 giờ chiều.'] },
   { japanese: [
     'バンコクはいまなんじですか。',
     'ごご４じです。'
-  ], vietnamese: [''] },
+  ], vietnamese: ['Bangkok bây giờ mấy giờ?', '4 giờ chiều.'] },
   { japanese: [
     'ロンドンはいまなんじですか。',
     'ごぜん９じです。'
-  ], vietnamese: [''] },
+  ], vietnamese: ['Luân Đôn bây giờ mấy giờ?', '9 giờ sáng.'] },
   { japanese: [
     'ロサンゼルスはいまなんじですか。',
     'ごぜん１じです。'
-  ], vietnamese: [''] },
+  ], vietnamese: ['Los Angeles bây giờ mấy giờ?', '1 giờ sáng.'] },
 ];
 
 const dateQuestionList: VocabularyItem[] = [
   { japanese: [
     'あしたはなんようびですか。',
     'すいようびです。'
-  ], vietnamese: [''] },
+  ], vietnamese: ['Ngày mai là thứ mấy?', 'Thứ tư.'] },
   { japanese: [
     'かいぎはなんようびですか。',
     'きんようびです。'
-  ], vietnamese: [''] },
+  ], vietnamese: ['Cuộc họp vào thứ mấy?', 'Thứ sáu.'] },
   { japanese: [
     'しけんはなんようびですか。',
     'もくようびです。'
-  ], vietnamese: [''] },
+  ], vietnamese: ['Kỳ thi vào thứ mấy?', 'Thứ năm.'] },
   { japanese: [
     'やすみはなんようびですか。',
     'どようびです。'
-  ], vietnamese: [''] },
+  ], vietnamese: ['Ngày nghỉ là thứ mấy?', 'Thứ bảy.'] },
 ];
 
 const fromtoQuestionList: VocabularyItem[] = [
   { japanese: [
     'ゆうびんきょくはなんじからなんじまでですか。',
     '９じから３じまでです。'
-  ], vietnamese: [''] },
+  ], vietnamese: ['Bưu điện mở từ mấy giờ đến mấy giờ?', 'Từ 9 giờ đến 3 giờ.'] },
   { japanese: [
     'デパートはなんじからなんじまでですか。',
     '１０じから８じはんまでです。'
-  ], vietnamese: [''] },
+  ], vietnamese: ['Cửa hàng bách hóa mở từ mấy giờ đến mấy giờ?', 'Từ 10 giờ đến 8 giờ 30.'] },
   { japanese: [
     'としょかんはなんじからなんじまでですか。',
     '９じから６じはんまでです。'
-  ], vietnamese: [''] },
+  ], vietnamese: ['Thư viện mở từ mấy giờ đến mấy giờ?', 'Từ 9 giờ đến 6 giờ 30.'] },
   { japanese: [
     'かいしゃはなんじからなんじまでですか。',
     '９じ１５ぷんから５じ４５ぷんまでです。'
-  ], vietnamese: [''] },
+  ], vietnamese: ['Công ty làm việc từ mấy giờ đến mấy giờ?', 'Từ 9 giờ 15 đến 5 giờ 45.'] },
 ];
 
 const actionQuestionTimeList: VocabularyItem[] = [
   { japanese: [
     'まいばんなんじにねますか。',
     '１１じにねます。'
-  ], vietnamese: [''] },
+  ], vietnamese: ['Mỗi tối ngủ lúc mấy giờ?', '11 giờ.'] },
   { japanese: [
     'あしたなんじにおきますか。',
     '６じはんにおきます。'
-  ], vietnamese: [''] },
+  ], vietnamese: ['Ngày mai thức dậy lúc mấy giờ?', '6 giờ 30.'] },
   { japanese: [
     'こんばんなんじにねますか。',
     '１２じにねます。'
-  ], vietnamese: [''] },
+  ], vietnamese: ['Tối nay ngủ lúc mấy giờ?', '12 giờ.'] },
   { japanese: [
     'にちようびなんじにおきますか。',
     '１０じにおきます。'
-  ], vietnamese: [''] },
+  ], vietnamese: ['Ngày chủ nhật thức dậy lúc mấy giờ?', '10 giờ.'] },
 ];
 
 const fromtoActionQuestionList: VocabularyItem[] = [
   { japanese: [
     'まいにちなんじからなんじまではたらきますか。',
     '９じはんから５じはんまではたらきます。'
-  ], vietnamese: [''] },
+  ], vietnamese: ['Mỗi ngày làm việc từ mấy giờ đến mấy giờ?', 'Từ 9 giờ 30 đến 5 giờ 30.'] },
   { japanese: [
     'ひるなんじからなんじまでやすみますか。',
     '１２じから１じまでやすみます。'
-  ], vietnamese: [''] },
+  ], vietnamese: ['Buổi trưa nghỉ từ mấy giờ đến mấy giờ?', 'Từ 12 giờ đến 1 giờ.'] },
   { japanese: [
     'どようびなんじからなんじまではたらきますか。',
     '９じから２じまではたらきます。'
-  ], vietnamese: [''] },
+  ], vietnamese: ['Ngày thứ bảy làm việc từ mấy giờ đến mấy giờ?', 'Từ 9 giờ đến 2 giờ.'] },
   { japanese: [
     'まいあさなんじからなんじまでべんきょうしますか。',
     '７じから８じまでべんきょうします。'
-  ], vietnamese: [''] },
+  ], vietnamese: ['Mỗi sáng học từ mấy giờ đến mấy giờ?', 'Từ 7 giờ đến 8 giờ.'] },
 ]
 
 const stateActionList: VocabularyItem[] = [
   { japanese: [
     'まいにちべんきょうします。',
-  ], vietnamese: [''] },
+  ], vietnamese: ['Mỗi ngày học.'] },
   { japanese: [
     'きのうのばんはたらきました。',
-  ], vietnamese: [''] },
+  ], vietnamese: ['Tối qua làm việc.'] },
   { japanese: [
     'あさってべんきょうします。',
-  ], vietnamese: [''] },
+  ], vietnamese: ['Ngày kia học.'] },
   { japanese: [
     'おとといはたらきました。',
-  ], vietnamese: [''] },
+  ], vietnamese: ['Hôm kia làm việc.'] },
 ]
 
 const actionYesNoQuestionList: VocabularyItem[] = [
   { japanese: [
     'あさってはたらきますか。',
     'いいえ、はたらきません。'
-  ], vietnamese: [''] },
+  ], vietnamese: ['Ngày kia có làm việc không?', 'Không, không làm việc.'] },
   { japanese: [
     'まいばんべんきょうしますか。',
     'はい、べんきょうします。'
-  ], vietnamese: [''] },
+  ], vietnamese: ['Mỗi tối có học không?', 'Có, học.'] },
   { japanese: [
     'きのうのばんべんきょうしましたか。',
     'はい、べんきょうしました。'
-  ], vietnamese: [''] },
+  ], vietnamese: ['Tối qua có học không?', 'Có, đã học.'] },
   { japanese: [
     'きのうはたらきましたか。',
     'いいえ、はたらきませんでした。'
-  ], vietnamese: [''] },
+  ], vietnamese: ['Hôm qua có làm việc không?', 'Không, không làm việc.'] },
 ]
 
 registerTranslationEntries([
@@ -415,6 +415,7 @@ registerTranslationEntries([
   ...fromtoQuestionList,
   ...actionQuestionTimeList,
   ...fromtoActionQuestionList,
+  ...stateActionList,
   ...actionYesNoQuestionList,
 ]);
 
