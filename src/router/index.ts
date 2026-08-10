@@ -9,6 +9,7 @@ import N5Unit1 from '@/views/n5/Unit1.vue'
 import N5Unit2 from '@/views/n5/Unit2.vue'
 import N5Unit3 from '@/views/n5/Unit3.vue'
 import N5Unit4 from '@/views/n5/Unit4.vue'
+import N5Unit5 from '@/views/n5/Unit5.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -24,6 +25,7 @@ const router = createRouter({
     { path: '/n5/unit2', component: N5Unit2 },
     { path: '/n5/unit3', component: N5Unit3 },
     { path: '/n5/unit4', component: N5Unit4 },
+    { path: '/n5/unit5', component: N5Unit5 },
   ],
 })
 
