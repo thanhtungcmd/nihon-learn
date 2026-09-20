@@ -3,7 +3,7 @@ import { computed, nextTick, onBeforeUnmount, onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useSelectionActions } from '@/composables/useSelectionActions';
 import { findTranslationForText } from '@/services/translationRegistry';
-import { searchVocabulary } from '@/services/globalVocabularySearch';
+import { searchVocabulary, type VocabularySearchResult } from '@/services/globalVocabularySearch';
 
 const { showContextMenu, contextMenuStyle, selectedText, runSelectedAction } = useSelectionActions();
 const showTranslation = ref(false);
@@ -24,9 +24,24 @@ function closeSearch() {
   searchQuery.value = '';
 }
 
-function openResult(route: string) {
+function normalizeVocabularyText(value: string) {
+  return value.replace(/\s+/g, '').trim();
+}
+
+async function openResult(result: VocabularySearchResult) {
   closeSearch();
-  router.push(route);
+  await router.push(result.route);
+  await nextTick();
+
+  const targetText = normalizeVocabularyText(result.japanese.join(''));
+  const row = [...document.querySelectorAll('tr')].find((element) =>
+    normalizeVocabularyText(element.textContent ?? '').includes(targetText),
+  );
+  if (!row) return;
+
+  row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  row.classList.add('vocabulary-search-target');
+  window.setTimeout(() => row.classList.remove('vocabulary-search-target'), 1800);
 }
 
 function handleShortcut(event: KeyboardEvent) {
@@ -63,7 +78,7 @@ function showVietnameseMeaning() {
             type="search"
             placeholder="Tìm tiếng Nhật hoặc tiếng Việt…"
             aria-label="Từ khóa tìm kiếm"
-            @keydown.enter="searchResults[0] && openResult(searchResults[0].route)"
+            @keydown.enter="searchResults[0] && openResult(searchResults[0])"
           />
           <button type="button" class="btn btn-outline-secondary" aria-label="Đóng tìm kiếm" @click="closeSearch">Esc</button>
         </div>
@@ -71,7 +86,7 @@ function showVietnameseMeaning() {
         <div class="vocabulary-search-results p-3">
           <p v-if="!searchQuery.trim()" class="text-secondary mb-0">Nhập từ vựng, cách đọc hoặc nghĩa tiếng Việt.</p>
           <p v-else-if="!searchResults.length" class="text-secondary mb-0">Không tìm thấy kết quả phù hợp.</p>
-          <button v-for="result in searchResults" :key="`${result.route}-${result.japanese.join('')}`" type="button" class="vocabulary-result" @click="openResult(result.route)">
+          <button v-for="result in searchResults" :key="`${result.route}-${result.japanese.join('')}`" type="button" class="vocabulary-result" @click="openResult(result)">
             <span class="vocabulary-result-japanese">{{ result.japanese.join(' · ') }}</span>
             <span class="vocabulary-result-vietnamese">{{ result.vietnamese.join(' · ') }}</span>
             <small>{{ result.source }}</small>
@@ -193,4 +208,13 @@ function showVietnameseMeaning() {
   .vocabulary-result-japanese { font-size: 20px; font-weight: 600; }
   .vocabulary-result-vietnamese { grid-column: 1; color: #475569; }
   .vocabulary-result small { grid-column: 2; grid-row: 1 / span 2; align-self: center; color: #64748b; }
+
+  .vocabulary-search-target {
+    animation: vocabulary-search-flash 1.8s ease-out;
+  }
+
+  @keyframes vocabulary-search-flash {
+    0%, 60% { background-color: #fef3c7; }
+    100% { background-color: transparent; }
+  }
 </style>
