@@ -43,8 +43,8 @@ function showVietnameseMeaning() {
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap');
 
-body { font-family: "Klee One", serif; }
-body { margin: 0; background: #f8fafc; }
+html { scrollbar-gutter: stable; }
+body { margin: 0; background: #f8fafc; font-family: "Klee One", serif; }
 .app-shell { display: flex; min-height: 100vh; }
 .app-content { width: min(100%, 1280px); margin: 0 auto; padding-right: 24px; padding-left: 24px; }
 table td { font-size: 32px; }
