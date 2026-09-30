@@ -5,31 +5,19 @@
 
 			<div class="text"><ruby>語彙<rt>ごい</rt></ruby></div>
 
-			<PronunciationTable :items="vocabularyList" @pronounce="playPronunciation" />
+			<PronunciationTable :items="vocabularyList" />
 
-      <div class="mt-5 text">Hội thoại cơ bản</div>
+      <PronunciationTable title="Hội thoại cơ bản" :items="questionList" />
 
-      <PronunciationTable :items="questionList" @pronounce="playPronunciation" />
+      <PronunciationTable title="Câu khẳng định" :items="grammarPositiveList" />
 
-      <div class="mt-5 text">Câu khẳng định</div>
+      <PronunciationTable title="Câu phủ định" :items="grammarNegativeList" />
 
-      <PronunciationTable :items="grammarPositiveList" @pronounce="playPronunciation" />
+      <PronunciationTable title="Câu hỏi có / không?" :items="grammarYesNoList" />
 
-      <div class="mt-5 text">Câu phủ định</div>
+      <PronunciationTable title="Câu hỏi ai đấy?" :items="grammarWhoList" />
 
-      <PronunciationTable :items="grammarNegativeList" @pronounce="playPronunciation" />
-
-      <div class="mt-5 text">Câu hỏi có / không?</div>
-
-      <PronunciationTable :items="grammarYesNoList" @pronounce="playPronunciation" />
-
-      <div class="mt-5 text">Câu hỏi ai đấy?</div>
-
-      <PronunciationTable :items="grammarWhoList" @pronounce="playPronunciation" />
-
-      <div class="mt-5 text">Câu hỏi tuổi ai đấy?</div>
-
-      <PronunciationTable :items="grammarAgeList" @pronounce="playPronunciation" />
+      <PronunciationTable title="Câu hỏi tuổi ai đấy?" :items="grammarAgeList" />
 
 		</div>
 	</section>

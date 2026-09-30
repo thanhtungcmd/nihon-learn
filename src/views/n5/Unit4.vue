@@ -5,31 +5,23 @@
 
       <div class="text"><ruby>語彙<rt>ごい</rt></ruby></div>
 
-      <PronunciationTable :items="vocabularyList" @pronounce="playPronunciation" />
+      <PronunciationTable :items="vocabularyList" />
 
-      <div class="mt-5 text">Cách nói giờ</div>
-      <PronunciationTable :items="timeList" @pronounce="playPronunciation" />
+      <PronunciationTable title="Cách nói giờ" :items="timeList" />
 
-      <div class="mt-5 text">Câu hỏi ở đâu mấy giờ?</div>
-      <PronunciationTable :items="whereTimeQuestionList" @pronounce="playPronunciation" />
+      <PronunciationTable title="Câu hỏi ở đâu mấy giờ?" :items="whereTimeQuestionList" />
 
-      <div class="mt-5 text">Câu hỏi hôm nay là thứ mấy?</div>
-      <PronunciationTable :items="dateQuestionList" @pronounce="playPronunciation" />
+      <PronunciationTable title="Câu hỏi hôm nay là thứ mấy?" :items="dateQuestionList" />
 
-      <div class="mt-5 text">Câu hỏi sự kiện từ mấy giờ đến mấy giờ?</div>
-      <PronunciationTable :items="fromtoQuestionList" @pronounce="playPronunciation" />
+      <PronunciationTable title="Câu hỏi sự kiện từ mấy giờ đến mấy giờ?" :items="fromtoQuestionList" />
 
-      <div class="mt-5 text">Câu hỏi bạn làm gì lúc mấy giờ?</div>
-      <PronunciationTable :items="actionQuestionTimeList" @pronounce="playPronunciation" />
+      <PronunciationTable title="Câu hỏi bạn làm gì lúc mấy giờ?" :items="actionQuestionTimeList" />
 
-      <div class="mt-5 text">Câu hỏi bạn làm gì từ mấy giờ đến mấy giờ?</div>
-      <PronunciationTable :items="fromtoActionQuestionList" @pronounce="playPronunciation" />
+      <PronunciationTable title="Câu hỏi bạn làm gì từ mấy giờ đến mấy giờ?" :items="fromtoActionQuestionList" />
 
-      <div class="mt-5 text">Tôi đang làm gì?</div>
-      <PronunciationTable :items="stateActionList" @pronounce="playPronunciation" />
+      <PronunciationTable title="Tôi đang làm gì?" :items="stateActionList" />
 
-      <div class="mt-5 text">Câu hỏi có không bạn đang làm gì?</div>
-      <PronunciationTable :items="actionYesNoQuestionList" @pronounce="playPronunciation" />
+      <PronunciationTable title="Câu hỏi có không bạn đang làm gì?" :items="actionYesNoQuestionList" />
 
     </div>
   </section>

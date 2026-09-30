@@ -5,39 +5,23 @@
 
       <div class="text"><ruby>語彙<rt>ごい</rt></ruby></div>
 
-      <PronunciationTable :items="vocabularyList" @pronounce="playPronunciation" />
+      <PronunciationTable :items="vocabularyList" />
 
-      <div class="mt-5 text">Hội thoại</div>
+      <PronunciationTable title="Hội thoại" :items="presentList" />
 
-      <PronunciationTable :items="presentList" @pronounce="playPronunciation" />
+      <PronunciationTable title="Câu hỏi có không" :items="questionList" />
 
-      <div class="mt-5 text">Câu hỏi có không</div>
+      <PronunciationTable title="Câu hỏi cái gì đây?" :items="questionWhatList" />
 
-      <PronunciationTable :items="questionList" @pronounce="playPronunciation" />
+      <PronunciationTable title="Câu hỏi cái này hay cái kia?" :items="questionOrList" />
 
-      <div class="mt-5 text">Câu hỏi cái gì đây?</div>
+      <PronunciationTable title="Câu hỏi cái này nói về nội dung gì?" :items="questionWhatContentList" />
 
-      <PronunciationTable :items="questionWhatList" @pronounce="playPronunciation" />
+      <PronunciationTable title="Câu hỏi cái này của ai?" :items="questionWhomList" />
 
-      <div class="mt-5 text">Câu hỏi cái này hay cái kia?</div>
+      <PronunciationTable title="Câu hỏi có hay không phải của ai đó?" :items="questionWhomYesNoList" />
 
-      <PronunciationTable :items="questionOrList" @pronounce="playPronunciation" />
-
-      <div class="mt-5 text">Câu hỏi cái này nói về nội dung gì?</div>
-
-      <PronunciationTable :items="questionWhatContentList" @pronounce="playPronunciation" />
-
-      <div class="mt-5 text">Câu hỏi cái này của ai?</div>
-
-      <PronunciationTable :items="questionWhomList" @pronounce="playPronunciation" />
-
-      <div class="mt-5 text">Câu hỏi có hay không phải của ai đó?</div>
-
-      <PronunciationTable :items="questionWhomYesNoList" @pronounce="playPronunciation" />
-
-      <div class="mt-5 text">Câu hỏi đồ vật này của ai (loại 2)?</div>
-
-      <PronunciationTable :items="questionWhomTwoList" @pronounce="playPronunciation" />
+      <PronunciationTable title="Câu hỏi đồ vật này của ai (loại 2)?" :items="questionWhomTwoList" />
 
     </div>
 

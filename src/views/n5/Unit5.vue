@@ -4,10 +4,9 @@
       <h1 class="mt-3 mb-3">Lesson 5</h1>
 
       <div class="text"><ruby>語彙<rt>ごい</rt></ruby></div>
-      <PronunciationTable :items="vocabularyList" @pronounce="playPronunciation" />
+      <PronunciationTable :items="vocabularyList" />
 
-      <div class="mt-5 text">Tôi đi đâu đó?</div>
-      <PronunciationTable :items="whereFromStatement" @pronounce="playPronunciation" />
+      <PronunciationTable title="Tôi đi đâu đó" :items="whereFromStatement" />
 
     </div>
   </section>

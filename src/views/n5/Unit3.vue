@@ -5,21 +5,15 @@
 
       <div class="text"><ruby>語彙<rt>ごい</rt></ruby></div>
 
-      <PronunciationTable :items="vocabularyList" @pronounce="playPronunciation" />
+      <PronunciationTable :items="vocabularyList" />
 
-      <div class="mt-5 text">Hội thoại</div>
+      <PronunciationTable title="Hội thoại" :items="presentList" />
 
-      <PronunciationTable :items="presentList" @pronounce="playPronunciation" />
+      <PronunciationTable title="Câu hỏi ở đâu" :items="questionList" />
 
-      <div class="mt-5 text">Câu hỏi ở đâu</div>
+      <PronunciationTable title="Vật này sản xuất ở đâu" :items="questionTwoList" />
 
-      <PronunciationTable :items="questionList" @pronounce="playPronunciation" />
-
-      <div class="mt-5 text">Vật này sản xuất ở đâu</div>
-      <PronunciationTable :items="questionTwoList" @pronounce="playPronunciation" />
-
-      <div class="mt-5 text">Vật này bao nhiêu tiền?</div>
-      <PronunciationTable :items="questionThreeList" @pronounce="playPronunciation" />
+      <PronunciationTable title="Vật này bao nhiêu tiền?" :items="questionThreeList" />
 
     </div>
 
