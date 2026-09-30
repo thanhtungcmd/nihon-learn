@@ -5,219 +5,39 @@
 
       <div class="text"><ruby>語彙<rt>ごい</rt></ruby></div>
 
-      <div class="mt-5 table-responsive">
-        <table class="table table-bordered table-hover mb-0 align-middle rounded-3"
-          style="max-width: 1200px; table-layout: fixed; width: 100%;">
-          <thead>
-            <tr>
-              <th scope="col" style="width: 90%;"></th>
-              <th scope="col" style="width: 10%;"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="item in vocabularyList" :key="item.japanese?.join('-')">
-              <td>
-                <div v-for="(line, idx) in item.japanese" :key="idx">{{ line }}</div>
-              </td>
-              <td>
-                <IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese ?? '')" />
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <PronunciationTable :items="vocabularyList" @pronounce="playPronunciation" />
 
       <div class="mt-5 text">Hội thoại</div>
 
-      <div class="mt-5 table-responsive">
-        <table class="table table-bordered table-hover mb-0 align-middle rounded-3"
-					style="max-width: 1200px; table-layout: fixed; width: 100%;">
-          <thead>
-            <tr>
-              <th scope="col" style="width: 90%;"></th>
-              <th scope="col" style="width: 10%;"></th>
-            </tr>
-          </thead>
-          <tbody>
-						<tr v-for="item in presentList" :key="item.japanese?.join('-')">
-							<td>
-								<div v-for="(line, idx) in item.japanese" :key="idx">{{ line }}</div>
-							</td>
-							<td>
-								<IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese ?? '')" />
-							</td>
-						</tr>
-					</tbody>
-        </table>
-      </div>
+      <PronunciationTable :items="presentList" @pronounce="playPronunciation" />
 
       <div class="mt-5 text">Câu hỏi có không</div>
 
-      <div class="mt-5 table-responsive">
-        <table class="table table-bordered table-hover mb-0 align-middle rounded-3"
-					style="max-width: 1200px; table-layout: fixed; width: 100%;">
-          <thead>
-            <tr>
-              <th scope="col" style="width: 90%;"></th>
-              <th scope="col" style="width: 10%;"></th>
-            </tr>
-          </thead>
-          <tbody>
-						<tr v-for="item in questionList" :key="item.japanese?.join('-')">
-							<td>
-								<div v-for="(line, idx) in item.japanese" :key="idx">{{ line }}</div>
-							</td>
-							<td>
-								<IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese ?? '')" />
-							</td>
-						</tr>
-					</tbody>
-        </table>
-      </div>
+      <PronunciationTable :items="questionList" @pronounce="playPronunciation" />
 
       <div class="mt-5 text">Câu hỏi cái gì đây?</div>
 
-      <div class="mt-5 table-responsive">
-        <table class="table table-bordered table-hover mb-0 align-middle rounded-3"
-					style="max-width: 1200px; table-layout: fixed; width: 100%;">
-          <thead>
-            <tr>
-              <th scope="col" style="width: 90%;"></th>
-              <th scope="col" style="width: 10%;"></th>
-            </tr>
-          </thead>
-          <tbody>
-						<tr v-for="item in questionWhatList" :key="item.japanese?.join('-')">
-							<td>
-								<div v-for="(line, idx) in item.japanese" :key="idx">{{ line }}</div>
-							</td>
-							<td>
-								<IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese ?? '')" />
-							</td>
-						</tr>
-					</tbody>
-        </table>
-      </div>
+      <PronunciationTable :items="questionWhatList" @pronounce="playPronunciation" />
 
       <div class="mt-5 text">Câu hỏi cái này hay cái kia?</div>
 
-      <div class="mt-5 table-responsive">
-        <table class="table table-bordered table-hover mb-0 align-middle rounded-3"
-					style="max-width: 1200px; table-layout: fixed; width: 100%;">
-          <thead>
-            <tr>
-              <th scope="col" style="width: 90%;"></th>
-              <th scope="col" style="width: 10%;"></th>
-            </tr>
-          </thead>
-          <tbody>
-						<tr v-for="item in questionOrList" :key="item.japanese?.join('-')">
-							<td>
-								<div v-for="(line, idx) in item.japanese" :key="idx">{{ line }}</div>
-							</td>
-							<td>
-								<IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese ?? '')" />
-							</td>
-						</tr>
-					</tbody>
-        </table>
-      </div>
+      <PronunciationTable :items="questionOrList" @pronounce="playPronunciation" />
 
       <div class="mt-5 text">Câu hỏi cái này nói về nội dung gì?</div>
 
-      <div class="mt-5 table-responsive">
-        <table class="table table-bordered table-hover mb-0 align-middle rounded-3"
-					style="max-width: 1200px; table-layout: fixed; width: 100%;">
-          <thead>
-            <tr>
-              <th scope="col" style="width: 90%;"></th>
-              <th scope="col" style="width: 10%;"></th>
-            </tr>
-          </thead>
-          <tbody>
-						<tr v-for="item in questionWhatContentList" :key="item.japanese?.join('-')">
-							<td>
-								<div v-for="(line, idx) in item.japanese" :key="idx">{{ line }}</div>
-							</td>
-							<td>
-								<IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese ?? '')" />
-							</td>
-						</tr>
-					</tbody>
-        </table>
-      </div>
+      <PronunciationTable :items="questionWhatContentList" @pronounce="playPronunciation" />
 
       <div class="mt-5 text">Câu hỏi cái này của ai?</div>
 
-      <div class="mt-5 table-responsive">
-        <table class="table table-bordered table-hover mb-0 align-middle rounded-3"
-					style="max-width: 1200px; table-layout: fixed; width: 100%;">
-          <thead>
-            <tr>
-              <th scope="col" style="width: 90%;"></th>
-              <th scope="col" style="width: 10%;"></th>
-            </tr>
-          </thead>
-          <tbody>
-						<tr v-for="item in questionWhomList" :key="item.japanese?.join('-')">
-							<td>
-								<div v-for="(line, idx) in item.japanese" :key="idx">{{ line }}</div>
-							</td>
-							<td>
-								<IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese ?? '')" />
-							</td>
-						</tr>
-					</tbody>
-        </table>
-      </div>
+      <PronunciationTable :items="questionWhomList" @pronounce="playPronunciation" />
 
       <div class="mt-5 text">Câu hỏi có hay không phải của ai đó?</div>
 
-      <div class="mt-5 table-responsive">
-        <table class="table table-bordered table-hover mb-0 align-middle rounded-3"
-					style="max-width: 1200px; table-layout: fixed; width: 100%;">
-          <thead>
-            <tr>
-              <th scope="col" style="width: 90%;"></th>
-              <th scope="col" style="width: 10%;"></th>
-            </tr>
-          </thead>
-          <tbody>
-						<tr v-for="item in questionWhomYesNoList" :key="item.japanese?.join('-')">
-							<td>
-								<div v-for="(line, idx) in item.japanese" :key="idx">{{ line }}</div>
-							</td>
-							<td>
-								<IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese ?? '')" />
-							</td>
-						</tr>
-					</tbody>
-        </table>
-      </div>
+      <PronunciationTable :items="questionWhomYesNoList" @pronounce="playPronunciation" />
 
       <div class="mt-5 text">Câu hỏi đồ vật này của ai (loại 2)?</div>
 
-      <div class="mt-5 table-responsive">
-        <table class="table table-bordered table-hover mb-0 align-middle rounded-3"
-					style="max-width: 1200px; table-layout: fixed; width: 100%;">
-          <thead>
-            <tr>
-              <th scope="col" style="width: 90%;"></th>
-              <th scope="col" style="width: 10%;"></th>
-            </tr>
-          </thead>
-          <tbody>
-						<tr v-for="item in questionWhomTwoList" :key="item.japanese?.join('-')">
-							<td>
-								<div v-for="(line, idx) in item.japanese" :key="idx">{{ line }}</div>
-							</td>
-							<td>
-								<IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese ?? '')" />
-							</td>
-						</tr>
-					</tbody>
-        </table>
-      </div>
+      <PronunciationTable :items="questionWhomTwoList" @pronounce="playPronunciation" />
 
     </div>
 
@@ -225,7 +45,7 @@
 </template>
 
 <script setup lang="ts">
-import { IconVolume } from '@tabler/icons-vue';
+import PronunciationTable from '@/components/PronunciationTable.vue';
 import { useSelectionActions } from '@/composables/useSelectionActions';
 import { playJapanesePronunciation } from '@/services/pollyService';
 import { registerTranslationEntries } from '@/services/translationRegistry';

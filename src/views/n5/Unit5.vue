@@ -1,44 +1,26 @@
 <template>
   <section class="card shadow-sm border-0">
     <div class="card-body p-4 p-md-5">
-      <h1 class="mt-3 mb-3">Lesson 4</h1>
+      <h1 class="mt-3 mb-3">Lesson 5</h1>
 
       <div class="text"><ruby>語彙<rt>ごい</rt></ruby></div>
+      <PronunciationTable :items="vocabularyList" @pronounce="playPronunciation" />
 
-      <div class="mt-5 table-responsive">
-        <table class="table table-bordered table-hover mb-0 align-middle rounded-3"
-          style="max-width: 1200px; table-layout: fixed; width: 100%;">
-          <thead>
-            <tr>
-              <th scope="col" style="width: 90%;"></th>
-              <th scope="col" style="width: 10%;"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="item in vocabularyList" :key="item.japanese?.join('-')">
-              <td>
-                <div v-for="(line, idx) in item.japanese" :key="idx">{{ line }}</div>
-              </td>
-              <td>
-                <IconVolume stroke="2" class="icon-volume" @click="playPronunciation(item.japanese ?? '')" />
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <div class="mt-5 text">Tôi đi đâu đó?</div>
+      <PronunciationTable :items="whereFromStatement" @pronounce="playPronunciation" />
 
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { IconVolume } from '@tabler/icons-vue';
+import PronunciationTable from '@/components/PronunciationTable.vue';
 import { useSelectionActions } from '@/composables/useSelectionActions';
 import { playJapanesePronunciation } from '@/services/pollyService';
 import { registerTranslationEntries } from '@/services/translationRegistry';
 
 interface VocabularyItem {
-  japanese?: string[];
+  japanese: string[];
   vietnamese?: string[];
 }
 
@@ -92,6 +74,14 @@ const vocabularyList: VocabularyItem[] = [
   { japanese: ['にじゅうよっか*'], vietnamese: ['ngày 24'] },
 ]
 
+const whereFromStatement: VocabularyItem[] = [
+  { japanese: [
+    'ゆうびんきょくへいきます。',
+  ], vietnamese: [
+    'Tôi đi đến bưu điện.',
+  ] },
+]
+
 registerTranslationEntries([
   ...vocabularyList,
 ]);
@@ -101,10 +91,9 @@ useSelectionActions({
   shortcutKey: 'k',
 });
 
-async function playPronunciation(text: string | string[]) {
+async function playPronunciation(text: string) {
   try {
-    const textToPlay = Array.isArray(text) ? text.join('') : text;
-    await playJapanesePronunciation(textToPlay);
+    await playJapanesePronunciation(text);
   } catch (error) {
     console.error('Failed to play pronunciation:', error);
   }
@@ -117,7 +106,4 @@ rt {
   font-size: 24px;
 }
 
-.icon-volume {
-  cursor: pointer;
-}
 </style>
