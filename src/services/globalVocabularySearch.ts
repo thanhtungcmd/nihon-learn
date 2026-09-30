@@ -7,6 +7,7 @@ export type VocabularySearchResult = {
 };
 
 type VocabularyEntry = Omit<VocabularySearchResult, 'score'>;
+type IndexedVocabularyEntry = VocabularyEntry & { searchable: string[] };
 
 // The lessons keep their vocabulary beside the lesson markup. Loading their source
 // as text lets the command palette search every lesson, even one not visited yet.
@@ -38,8 +39,8 @@ function lessonDetails(path: string) {
   return sources[name] ?? null;
 }
 
-function buildIndex(): VocabularyEntry[] {
-  const entries: VocabularyEntry[] = [];
+function buildIndex(): IndexedVocabularyEntry[] {
+  const entries: IndexedVocabularyEntry[] = [];
   const itemPattern = /\{\s*japanese:\s*\[([\s\S]*?)\]\s*,\s*vietnamese:\s*\[([\s\S]*?)\]\s*\}/g;
 
   for (const [path, content] of Object.entries(lessonSources)) {
@@ -48,7 +49,14 @@ function buildIndex(): VocabularyEntry[] {
     for (const match of content.matchAll(itemPattern)) {
       const japanese = stringsFromArray(match[1] ?? '');
       const vietnamese = stringsFromArray(match[2] ?? '');
-      if (japanese.length && vietnamese.length) entries.push({ ...details, japanese, vietnamese });
+      if (japanese.length && vietnamese.length) {
+        entries.push({
+          ...details,
+          japanese,
+          vietnamese,
+          searchable: [...japanese, japanese.join(''), ...vietnamese].map(normalize),
+        });
+      }
     }
   }
   return entries;
@@ -93,8 +101,7 @@ export function searchVocabulary(query: string, limit = 20): VocabularySearchRes
 
   return vocabularyIndex
     .map((entry) => {
-      const searchable = [...entry.japanese, entry.japanese.join(''), ...entry.vietnamese];
-      const score = Math.min(...searchable.map((value) => matchScore(term, normalize(value))));
+      const score = Math.min(...entry.searchable.map((value) => matchScore(term, value)));
       return { ...entry, score };
     })
     .filter((entry) => entry.score <= (term.length < 3 ? 0.15 : 0.46))

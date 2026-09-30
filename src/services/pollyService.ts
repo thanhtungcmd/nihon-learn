@@ -1,4 +1,4 @@
-import { PollyClient, SynthesizeSpeechCommand } from '@aws-sdk/client-polly';
+import { PollyClient, SynthesizeSpeechCommand, type VoiceId } from '@aws-sdk/client-polly';
 
 const polly = new PollyClient({
   region: import.meta.env.VITE_AWS_REGION || 'ap-northeast-1',
@@ -7,6 +7,17 @@ const polly = new PollyClient({
     secretAccessKey: import.meta.env.VITE_AWS_SECRET_ACCESS_KEY || '',
   },
 });
+
+let activeAudio: HTMLAudioElement | undefined;
+let activeAudioUrl: string | undefined;
+let playbackRequest = 0;
+
+function releaseActiveAudio() {
+  activeAudio?.pause();
+  activeAudio = undefined;
+  if (activeAudioUrl) URL.revokeObjectURL(activeAudioUrl);
+  activeAudioUrl = undefined;
+}
 
 function encodeXml(value: string) {
   return value
@@ -19,12 +30,13 @@ function encodeXml(value: string) {
 
 export async function playJapanesePronunciation(
   text: string,
-  voiceId: string = 'Takumi'
+  voiceId: VoiceId = 'Takumi'
 ): Promise<void> {
   if (!text || !text.trim()) {
     return;
   }
 
+  const requestId = ++playbackRequest;
   const ssmlText = `<speak><prosody rate="60%">${encodeXml(text.trim())}</prosody></speak>`;
 
   try {
@@ -43,9 +55,15 @@ export async function playJapanesePronunciation(
     }
 
     const audioData = await new Response(response.AudioStream as any).arrayBuffer();
-    const audioUrl = URL.createObjectURL(new Blob([audioData], { type: 'audio/mpeg' }));
-    const audio = new Audio(audioUrl);
-    await audio.play();
+    // Synthesis responses may arrive out of order; only play the most recent request.
+    if (requestId !== playbackRequest) return;
+
+    releaseActiveAudio();
+    activeAudioUrl = URL.createObjectURL(new Blob([audioData], { type: 'audio/mpeg' }));
+    activeAudio = new Audio(activeAudioUrl);
+    activeAudio.addEventListener('ended', releaseActiveAudio, { once: true });
+    activeAudio.addEventListener('error', releaseActiveAudio, { once: true });
+    await activeAudio.play();
   } catch (error) {
     console.error('Polly playback failed:', error);
     throw error;
