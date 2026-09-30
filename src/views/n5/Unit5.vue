@@ -79,10 +79,16 @@ const whereFromStatement: VocabularyItem[] = [
   ], vietnamese: [
     'Tôi đi đến bưu điện.',
   ] },
+  { japanese: [
+    'デパートへ いきます。',
+  ], vietnamese: [
+    'Tôi đi đến bách hóa.',
+  ] },
 ]
 
 registerTranslationEntries([
   ...vocabularyList,
+  ...whereFromStatement,
 ]);
 
 useSelectionActions({
