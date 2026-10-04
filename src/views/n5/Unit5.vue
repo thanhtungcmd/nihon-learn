@@ -8,6 +8,12 @@
 
       <PronunciationTable title="Tôi đi đâu đó" :items="whereFromStatement" />
 
+      <PronunciationTable title="Câu hỏi hôm nào bạn đi đâu?" :items="whereTimeQuestion" />
+
+      <PronunciationTable title="Câu hỏi bạn đi đến đâu bằng gì?" :items="whereTransportQuestion" />
+
+      <PronunciationTable title="Câu hỏi bạn đi đến đâu với ai?" :items="wherePersonQuestion" />
+
     </div>
   </section>
 </template>
@@ -86,9 +92,90 @@ const whereFromStatement: VocabularyItem[] = [
   ] },
 ]
 
+const whereTimeQuestion: VocabularyItem[] = [
+  { japanese: [
+    'せんげつどこへいきましたか。',
+    'アメリカへ いきました。',
+  ], vietnamese: [
+    'Tháng trước bạn đã đi đâu?',
+    'Tôi đã đi Mỹ.',
+  ] },
+  { japanese: [
+    'きのうのごごどこへいきましたか。',
+    'としょかんへ いきました。',
+  ], vietnamese: [
+    'Chiều hôm qua bạn đã đi đâu?',
+    'Tôi đã đi thư viện.',
+  ] },
+  { japanese: [
+    'らいしゅうのげつようびどこへいきますか。',
+    'パワーでんきへいきます。',
+  ], vietnamese: [
+    'Chiều hôm qua bạn đã đi đâu?',
+    'Tôi đi đến Power Denki.',
+  ] },
+  { japanese: [
+    'せんしゅうのにちようびどこへいきましたか。',
+    'どこへもいきませんでした。',
+  ], vietnamese: [
+    'Chủ nhật tuần trước, bạn đã đi đâu?',
+    'Tôi đã không đi đâu cả.',
+  ] },
+]
+
+const whereTransportQuestion: VocabularyItem[] = [
+  { japanese: [
+    'なんでがつこうへいきますか。',
+    'じてんしゃでいきます。'
+  ], vietnamese: [
+    'Bạn đi đến trường bằng phương tiện gì.',
+    'Tôi đi bằng xe đạp.'
+  ] },
+  { japanese: [
+    'なんでとうきょうへいきますか。',
+    'ひこうきでいきます。'
+  ], vietnamese: [
+    'Bạn đi Tokyo bằng phương tiện gì?',
+    'Tôi đi bằng máy bay.'
+  ] },
+  { japanese: [
+    'なんできゅうしゅうへいきますか。',
+    'ふねでいきます。'
+  ], vietnamese: [
+    'Bạn đi đến Kyushu bằng phương tiện gì.',
+    'Tôi đi bằng thuyền.'
+  ] },
+  { japanese: [
+    'なんでえきへいきますか。',
+    'あるいていきます。'
+  ], vietnamese: [
+    'Bạn đi đến nhà ga bằng phương tiện gì.',
+    'Tôi đi bộ.'
+  ] },
+]
+
+const wherePersonQuestion: VocabularyItem[] = [
+  { japanese: [
+    'だれとびじゅつかんへいきますか。',
+    'かのじょといきます。'
+  ], vietnamese: [
+    'Bạn đi đến bảo tàng mỹ thuật cùng với ai.',
+    'Tôi đi cùng bạn gái.'
+  ] },
+  { japanese: [
+    'だれとひろしまへいきますか。',
+    'かいしゃのひとといきます。'
+  ], vietnamese: [
+    'Bạn đi đến bảo tàng mỹ thuật cùng với ai.',
+    'Tôi đi cùng người của công ty.'
+  ] },
+]
+
 registerTranslationEntries([
   ...vocabularyList,
-  ...whereFromStatement,
+  ...whereTimeQuestion,
+  ...whereTransportQuestion,
+  ...wherePersonQuestion
 ]);
 
 useSelectionActions({
