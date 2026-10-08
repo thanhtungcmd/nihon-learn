@@ -8,6 +8,7 @@ const Yoon = () => import('@/views/simple/Yoon.vue')
 const Katakana = () => import('@/views/simple/Katakana.vue')
 const Vowel = () => import('@/views/simple/Vowel.vue')
 const Hello = () => import('@/views/simple/Hello.vue')
+const PoliteVerbForms = () => import('@/views/simple/PoliteVerbForms.vue')
 const N5Unit1 = () => import('@/views/n5/Unit1.vue')
 const N5Unit2 = () => import('@/views/n5/Unit2.vue')
 const N5Unit3 = () => import('@/views/n5/Unit3.vue')
@@ -23,6 +24,7 @@ const router = createRouter({
     { path: '/katakana', component: Katakana },
     { path: '/vowel', component: Vowel },
     { path: '/hello', component: Hello },
+    { path: '/polite-verb-forms', component: PoliteVerbForms },
 
     { path: '/n5/unit1', component: N5Unit1 },
     { path: '/n5/unit2', component: N5Unit2 },

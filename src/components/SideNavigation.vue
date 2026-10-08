@@ -40,6 +40,7 @@ const navigationGroups = [
       { to: '/katakana', label: 'Katakana' },
       { to: '/vowel', label: 'Nguyên âm' },
       { to: '/hello', label: 'Chào hỏi' },
+      { to: '/polite-verb-forms', label: 'Chia động từ (ます形)' },
     ],
   },
   {

@@ -14,6 +14,8 @@
 
       <PronunciationTable title="Câu hỏi bạn đi đến đâu với ai?" :items="wherePersonQuestion" />
 
+      <PronunciationTable title="Câu hỏi bạn đi đến đâu khi nào?" :items="whereWhenQuestion" />
+
     </div>
   </section>
 </template>
@@ -169,13 +171,45 @@ const wherePersonQuestion: VocabularyItem[] = [
     'Bạn đi đến bảo tàng mỹ thuật cùng với ai.',
     'Tôi đi cùng người của công ty.'
   ] },
+  { japanese: [
+    'だれとほつかいどうへいきますか。',
+    'かぞくといきます。'
+  ], vietnamese: [
+    'Bạn đi Hokkaido cùng với ai.',
+    'Tôi đi với gia đình.'
+  ] },
+  { japanese: [
+    'だれとフランスへいきますか。',
+    'ひとりでいきます。'
+  ], vietnamese: [
+    'Bạn đi Pháp với ai.',
+    'Tôi đi một mình.'
+  ] },
+]
+
+const whereWhenQuestion: VocabularyItem[] = [
+  { japanese: [
+    'いつさくらだいがくへいきますか。',
+    '９がつじゅうよっかにいきます。'
+  ], vietnamese: [
+    'Bạn đi đến Đại học Sakura khi nào.',
+    'Tôi đi vào ngày 14 tháng 9.'
+  ] },
+  { japanese: [
+    'いつアメリカへいきますか。',
+    'らいねんの３がつにいきます。'
+  ], vietnamese: [
+    'Bạn đi Mỹ khi nào.',
+    'Tôi sẽ đi vào tháng 3 năm sau.'
+  ] },
 ]
 
 registerTranslationEntries([
   ...vocabularyList,
   ...whereTimeQuestion,
   ...whereTransportQuestion,
-  ...wherePersonQuestion
+  ...wherePersonQuestion,
+  ...whereWhenQuestion,
 ]);
 
 useSelectionActions({

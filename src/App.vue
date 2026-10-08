@@ -46,7 +46,7 @@ function showVietnameseMeaning() {
 html { scrollbar-gutter: stable; }
 body { margin: 0; background: #f8fafc; font-family: "Klee One", serif; }
 .app-shell { display: flex; min-height: 100vh; }
-.app-content { width: min(100%, 1280px); margin: 0 auto; padding-right: 24px; padding-left: 24px; }
+.app-content { width: min(100%, 1280px); min-width: 0; margin: 0 auto; padding-right: 24px; padding-left: 24px; }
 table td { font-size: 32px; }
 .text { font-size: 36px; line-height: 170%; }
 rt { font-size: 22px; }
