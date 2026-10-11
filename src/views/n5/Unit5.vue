@@ -8,13 +8,17 @@
 
       <PronunciationTable title="Tôi đi đâu đó" :items="whereFromStatement" />
 
-      <PronunciationTable title="Câu hỏi hôm nào bạn đi đâu?" :items="whereTimeQuestion" />
+      <PronunciationTable title="Câu hỏi hôm nào bạn đi đâu?" :items="whereDayQuestion" />
 
       <PronunciationTable title="Câu hỏi bạn đi đến đâu bằng gì?" :items="whereTransportQuestion" />
 
       <PronunciationTable title="Câu hỏi bạn đi đến đâu với ai?" :items="wherePersonQuestion" />
 
       <PronunciationTable title="Câu hỏi bạn đi đến đâu khi nào?" :items="whereWhenQuestion" />
+
+      <PronunciationTable title="Luyện tập tổng hợp" :items="wherePractice" />
+
+      <PronunciationTable title="Bạn đến đâu lúc mấy giờ?" :items="whereTimeQuestion" />
 
     </div>
   </section>
@@ -94,7 +98,7 @@ const whereFromStatement: VocabularyItem[] = [
   ] },
 ]
 
-const whereTimeQuestion: VocabularyItem[] = [
+const whereDayQuestion: VocabularyItem[] = [
   { japanese: [
     'せんげつどこへいきましたか。',
     'アメリカへ いきました。',
@@ -202,14 +206,92 @@ const whereWhenQuestion: VocabularyItem[] = [
     'Bạn đi Mỹ khi nào.',
     'Tôi sẽ đi vào tháng 3 năm sau.'
   ] },
+  { japanese: [
+    'いつひろしまへいきますか。',
+    'らいげついきます。'
+  ], vietnamese: [
+    'Khi nào bạn đi Hiroshima.',
+    'Tôi sẽ đi vào tháng sau.'
+  ] },
+  { japanese: [
+    'いつびょういんへいきますか。',
+    'こんしゅうのすいようびにいきます。'
+  ], vietnamese: [
+    'Khi nào bạn đi đến bệnh viện.',
+    'Tôi sẽ đi vào thứ Tư tuần này.'
+  ] },
+]
+
+const wherePractice: VocabularyItem[] = [
+  { japanese: [
+    'だれとにほんへいきますか。',
+    'ひとりできました。'
+  ], vietnamese: [
+    'Bạn đi Nhật Bản cùng với ai',
+    'Tôi đã đến một mình.'
+  ] },
+  { japanese: [
+    'せんげつどこへいきましたか。',
+    'かんこくへいきました。'
+  ], vietnamese: [
+    'Tháng trước bạn đã đi đâu.',
+    'Tôi đã đi Hàn Quốc.'
+  ] },
+  { japanese: [
+    'なんでかんこくへいきましたか。',
+    'ふねでいきました。'
+  ], vietnamese: [
+    'Bạn đi Hàn Quốc bằng phương tiện gì.',
+    'Tôi đã đi bằng tàu thủy.'
+  ] },
+   { japanese: [
+    'いつ くにへ かえりますか。',
+    'らいねんの１２がつにかえります。'
+  ], vietnamese: [
+    'Khi nào bạn về nước?',
+    'Tôi sẽ về nước vào tháng 12 năm sau.'
+  ] },
+]
+
+const whereTimeQuestion: VocabularyItem[] = [
+  { japanese: [
+    'まいあさなんじにかいしゃへいきますか。',
+    '７じはんにいきます。'
+  ], vietnamese: [
+    'Mỗi sáng bạn đi đến công ty lúc mấy giờ?',
+    'Tôi đi lúc 7 giờ rưỡi.'
+  ] },
+  { japanese: [
+    'まいあさなんでかいしゃへいきますか。',
+    'バスとでんしゃでいきます。'
+  ], vietnamese: [
+    'Mỗi sáng bạn đi đến công ty bằng gì.',
+    'Tôi đi bằng xe buýt và tàu điện.'
+  ] },
+  { japanese: [
+    'おとといだれとおおさかじょうへいきましたか。',
+    'きむらさんといきました。'
+  ], vietnamese: [
+    'Hôm kia bạn đã đi đến lâu đài Osaka với ai.',
+    'Tôi đã đi cùng anh Kimura.'
+  ] },
+  { japanese: [
+    '',
+    ''
+  ], vietnamese: [
+    '',
+    ''
+  ] },
 ]
 
 registerTranslationEntries([
   ...vocabularyList,
-  ...whereTimeQuestion,
+  ...whereDayQuestion,
   ...whereTransportQuestion,
   ...wherePersonQuestion,
   ...whereWhenQuestion,
+  ...wherePractice,
+  ...whereTimeQuestion
 ]);
 
 useSelectionActions({
