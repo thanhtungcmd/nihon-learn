@@ -58,17 +58,17 @@ const vocabularyList: VocabularyItem[] = [
 ];
 
 const presentList: VocabularyItem[] = [
-  { japanese: ['ここはうけつけです。'], vietnamese: ['Đây là quầy lễ tân.'] },
-  { japanese: ['ここはじむしょです。'], vietnamese: ['Đây là văn phòng.'] },
-  { japanese: ['ここはかいぎしつです。'], vietnamese: ['Đây là văn phòng.'] },
-  { japanese: ['ここはトイレです。'], vietnamese: ['Đây là toilet.'] },
+  { japanese: ['ここ は うけつけ です。'], vietnamese: ['Đây là quầy lễ tân.'] },
+  { japanese: ['ここ は じむしょ です。'], vietnamese: ['Đây là văn phòng.'] },
+  { japanese: ['ここ は かいぎしつ です。'], vietnamese: ['Đây là văn phòng.'] },
+  { japanese: ['ここ は トイレ です。'], vietnamese: ['Đây là toilet.'] },
 ];
 
 const questionList: VocabularyItem[] = [
   {
     japanese: [
-      'かいぎしつはどこですか。',
-      'ここです。',
+      'かいぎしつ は どこ です か。',
+      'ここ です。',
     ], vietnamese: [
       'Phòng họp ở đâu?',
       'Ở đây.',
@@ -76,8 +76,8 @@ const questionList: VocabularyItem[] = [
   },
   {
     japanese: [
-      'じどうはんばいきはどこですか。',
-      'そこです。',
+      'じどうはんばいき は どこ です か。',
+      'そこ です。',
     ], vietnamese: [
       'Phòng họp ở đâu?',
       'Ở đây.',
@@ -85,8 +85,8 @@ const questionList: VocabularyItem[] = [
   },
   {
     japanese: [
-      'やまださんはどこですか。',
-      'あそこです。',
+      'やまだ さん は どこ です か。',
+      'あそこ です。',
     ], vietnamese: [
       'Yamada ở đâu?',
       'Ở đây.',
@@ -94,8 +94,8 @@ const questionList: VocabularyItem[] = [
   },
   {
     japanese: [
-      'トイレはどこですか。',
-      '1かいです。',
+      'トイレ は どこ です か。',
+      '1 かい です。',
     ], vietnamese: [
       'Nhà vệ sinh ở đâu?',
       'Ở tầng 1.',
@@ -103,8 +103,8 @@ const questionList: VocabularyItem[] = [
   },
   {
     japanese: [
-      'しょくどうはどこですか。',
-      'ちかです。',
+      'しょくどう は どこ です か。',
+      'ちか です。',
     ], vietnamese: [
       'Yamada ở đâu?',
       'Ở đây.',
@@ -112,8 +112,8 @@ const questionList: VocabularyItem[] = [
   },
   {
     japanese: [
-      'ミラーさんのおくにどちらですか。',
-      'アメリカです。',
+      'ミラー さん の おくに は どちら です か。',
+      'アメリカ です。',
     ], vietnamese: [
       'Miller là người nước nào?',
       'Mỹ.',
@@ -121,8 +121,8 @@ const questionList: VocabularyItem[] = [
   },
   {
     japanese: [
-      'ミラーさんのだいがくはどちらですか。',
-      'さくらだいがくです。',
+      'ミラー さん の だいがく は どちら です か。',
+      'さくら だいがく です。',
     ], vietnamese: [
       'Miller là người nước nào?',
       'Mỹ.',
@@ -133,8 +133,8 @@ const questionList: VocabularyItem[] = [
 const questionTwoList: VocabularyItem[] = [
   {
     japanese: [
-      'あれはどこのかばんですか。',
-      'かんこくのかばんです。',
+      'あれ は どこ の かばん です か。',
+      'かんこく の かばん です。',
     ], vietnamese: [
       'Kia là cặp của nước nào?',
       'Cặp của Hàn Quốc..',
@@ -145,8 +145,8 @@ const questionTwoList: VocabularyItem[] = [
 const questionThreeList: VocabularyItem[] = [
   {
     japanese: [
-      'このかばんはいくらですか。',
-      '7300えんです。',
+      'この かばん は いくら です か。',
+      '7300 えん です。',
     ], vietnamese: [
       'Cái cặp này giá bao nhiêu?',
       '7300 yên',

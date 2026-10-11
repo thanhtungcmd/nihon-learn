@@ -78,36 +78,36 @@ const vocabularyList: VocabularyItem[] = [
 ]
 
 const presentList: VocabularyItem[] = [
-  { japanese: ['これはほんです。'], vietnamese: ['Đây là cuốn sách.'] },
-  { japanese: ['それはかぎです。'], vietnamese: ['Cái đó là chìa khóa.'] },
-  { japanese: ['あれはテレビです。'], vietnamese: ['Kia là chiếc tivi.'] },
+  { japanese: ['これ は ほん です。'], vietnamese: ['Đây là cuốn sách.'] },
+  { japanese: ['それ は かぎ です。'], vietnamese: ['Cái đó là chìa khóa.'] },
+  { japanese: ['あれ は テレビ です。'], vietnamese: ['Kia là chiếc tivi.'] },
 ]
 
 const questionList: VocabularyItem[] = [
   { japanese: [
-    'これはとけいですか。',
-    'はい、とけいです。',
+    'これ は とけい です か。',
+    'はい、 とけい です。',
   ], vietnamese: [
     'Đây là đồng hồ phải không?',
     'Vâng, là đồng hồ.',
   ] },
   { japanese: [
-    'これはラジオですか。',
-    'いいえ、カメラです。',
+    'これ は ラジオ です か。',
+    'いいえ、 カメラ です。',
   ], vietnamese: [
     'Đây là radio phải không?',
     'Không, là máy ảnh.',
   ] },
   { japanese: [
-    'これはえんぴつですか。',
-    'いいえ、ボールペンです。',
+    'これ は えんぴつ です か。',
+    'いいえ、 ボールペン です。',
   ], vietnamese: [
     'Đây là bút chì phải không?',
     'Không, là bút bi.',
   ] },
   { japanese: [
-    'これはいすですか。',
-    'はい、いすです。',
+    'これ は いす です か。',
+    'はい、 いす です。',
   ], vietnamese: [
     'Đây là ghế phải không?',
     'Vâng, là ghế.',
@@ -116,29 +116,29 @@ const questionList: VocabularyItem[] = [
 
 const questionWhatList: VocabularyItem[] = [
   { japanese: [
-    'これはなんですか。',
-    'とけいです。',
+    'これ は なん です か。',
+    'とけい です。',
   ], vietnamese: [
     'Đây là cái gì?',
     'Là đồng hồ.',
   ] },
   { japanese: [
-    'これはなんですか。',
-    'カメラです。',
+    'これ は なん です か。',
+    'カメラ です。',
   ], vietnamese: [
     'Đây là cái gì?',
     'Là máy ảnh.',
   ] },
   { japanese: [
-    'これはなんですか。',
-    'ボールペンです。',
+    'これ は なん です か。',
+    'ボールペン です。',
   ], vietnamese: [
     'Đây là cái gì?',
     'Là bút bi.',
   ] },
   { japanese: [
-    'これはなんですか。',
-    'いすです。',
+    'これ は なん です か。',
+    'いす です。',
   ], vietnamese: [
     'Đây là cái gì?',
     'Là ghế.',
@@ -147,8 +147,8 @@ const questionWhatList: VocabularyItem[] = [
 
 const questionOrList: VocabularyItem[] = [
   { japanese: [
-    'これはほんですか、ざつしですか。',
-    'ほんです。',
+    'これ は ほん です か、 ざつし です か。',
+    'ほん です。',
   ], vietnamese: [
     'Đây là sách hay tạp chí?',
     'Là sách.',
@@ -157,15 +157,15 @@ const questionOrList: VocabularyItem[] = [
 
 const questionWhatContentList: VocabularyItem[] = [
   { japanese: [
-    'これはなんのざつしですか。',
-    'くるまのざつしです。',
+    'これ は なん の ざつし です か。',
+    'くるま の ざつし です。',
   ], vietnamese: [
     'Đây là tạp chí gì?',
     'Là tạp chí về ô tô.',
   ] },
   { japanese: [
-    'これはなんのほんですか。',
-    'にほんごのほんです。',
+    'これ は なん の ほん です か。',
+    'にほんご の ほん です。',
   ], vietnamese: [
     'Đây là cuốn sách gì?',
     'Là cuốn sách tiếng Nhật.',
@@ -174,15 +174,15 @@ const questionWhatContentList: VocabularyItem[] = [
 
 const questionWhomList: VocabularyItem[] = [
   { japanese: [
-    'これはだれのかばんですか。',
-    'やまださんのかばんです。',
+    'これ は だれ の かばん です か。',
+    'やまだ さん の かばん です。',
   ], vietnamese: [
     'Cái cặp này của ai?',
     'Là cặp của anh Yamada.',
   ] },
   { japanese: [
-    'これはだれのかさですか。',
-    'さとうさんのかさです。',
+    'これ は だれ の かさ です か。',
+    'さとう さん の かさ です。',
   ], vietnamese: [
     'Chiếc ô này của ai?',
     'Là ô của anh Sato.',
@@ -191,8 +191,8 @@ const questionWhomList: VocabularyItem[] = [
 
 const questionWhomYesNoList: VocabularyItem[] = [
   { japanese: [
-    'これはさとうさんのですか。',
-    'はい、さとうさんのです。',
+    'これ は さとう さん の です か。',
+    'はい、 さとう さん の です。',
   ], vietnamese: [
     'Đây có phải của anh Sato không?',
     'Có, là của anh Sato.',
@@ -201,8 +201,8 @@ const questionWhomYesNoList: VocabularyItem[] = [
 
 const questionWhomTwoList: VocabularyItem[] = [
   { japanese: [
-    'このかばんはだれのですか。',
-    'やまださんのです。',
+    'この かばん は だれ の です か。',
+    'やまだ さん の です。',
   ], vietnamese: [
     'Chiếc cặp này của ai?',
     'Của anh Yamada.',

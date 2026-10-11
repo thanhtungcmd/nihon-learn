@@ -63,11 +63,11 @@ const vocabularyList: VocabularyItem[] = [
   { japanese: ['はい'], vietnamese: ['vâng'] },
   { japanese: ['いいえ'], vietnamese: ['không'] },
   { japanese: ['はじめまして'], vietnamese: ['rất hân hạnh được gặp anh chị'] },
-  { japanese: ['～からきました'], vietnamese: ['tôi đến từ ~'] },
-  { japanese: ['どうぞよろしく', '[おねがいします]'], vietnamese: ['rất vui khi được làm quen'] },
-  { japanese: ['しつれいですが'], vietnamese: ['xin lỗi (khi muốn hỏi thông tin)'] },
-  { japanese: ['おなまえは？'], vietnamese: ['tên anh chị là gì?'] },
-  { japanese: ['こちらは～さんです'], vietnamese: ['đây là anh/chị ~'] },
+  { japanese: ['～ から きました'], vietnamese: ['tôi đến từ ~'] },
+  { japanese: ['どうぞ よろしく', '[おねがい します]'], vietnamese: ['rất vui khi được làm quen'] },
+  { japanese: ['しつれい です が'], vietnamese: ['xin lỗi (khi muốn hỏi thông tin)'] },
+  { japanese: ['おなまえ は？'], vietnamese: ['tên anh chị là gì?'] },
+  { japanese: ['こちら は ～ さん です'], vietnamese: ['đây là anh/chị ~'] },
   { japanese: ['アメリカ'], vietnamese: ['nước Mỹ'] },
   { japanese: ['イギリス'], vietnamese: ['nước Anh'] },
   { japanese: ['イソド'], vietnamese: ['Ấn Độ'] },
@@ -76,58 +76,58 @@ const vocabularyList: VocabularyItem[] = [
 
 const questionList: VocabularyItem[] = [
   { japanese: ['はじめまして。'], vietnamese: ['Rất vui được gặp bạn'] },
-  { japanese: ['おなまえは？'], vietnamese: ['Tên của bạn là gì?'] },
-  { japanese: ['(わたしは)トゥンです'], vietnamese: ['Tên tôi là Tùng'] },
-  { japanese: ['おしごとは？'], vietnamese: ['Công việc của bạn là gì?'] },
-  { japanese: ['(わたしは)エンジニアです'], vietnamese: ['Công việc của tôi là kỹ sư'] },
-  { japanese: ['ことしはにじゅうななさいです'], vietnamese: ['Năm nay tôi 27 tuổi'] },
-  { japanese: ['ベトナムからきました'], vietnamese: ['Tôi đến từ việt nam'] },
+  { japanese: ['おなまえ は？'], vietnamese: ['Tên của bạn là gì?'] },
+  { japanese: ['(わたし は) トゥン です'], vietnamese: ['Tên tôi là Tùng'] },
+  { japanese: ['おしごと は？'], vietnamese: ['Công việc của bạn là gì?'] },
+  { japanese: ['(わたし は) エンジニア です'], vietnamese: ['Công việc của tôi là kỹ sư'] },
+  { japanese: ['ことし は にじゅうなな さい です'], vietnamese: ['Năm nay tôi 27 tuổi'] },
+  { japanese: ['ベトナム から きました'], vietnamese: ['Tôi đến từ việt nam'] },
   { japanese: ['どうぞ よろしく おねがい します。'], vietnamese: ['Rất mong được giúp đỡ'] },
 ]
 
 const grammarPositiveList: VocabularyItem[] = [
-  { japanese: ['やまださんはにほんじんです。'], vietnamese: ['Yamada-san là người Nhật'] },
-  { japanese: ['ワットさんはイギリスじんです。'], vietnamese: ['Watt-san là người Anh'] },
-  { japanese: ['タワボンさんはタイじんです。'], vietnamese: ['Tawabon-san là người Thái'] },
-  { japanese: ['シュミットさんはドイツじんです。'], vietnamese: ['Schmitt-san là người Đức'] },
-  { japanese: ['やまださんはぎんこういんです。'], vietnamese: ['Yamada-san là nhân viên ngân hàng'] },
-  { japanese: ['ワットさんはせんせいです。'], vietnamese: ['Watt-san là giáo viên'] },
-  { japanese: ['タワボンさんはがくせいです。'], vietnamese: ['Tawabon-san là học sinh'] },
-  { japanese: ['シュミットさんはかいしゃいんです。'], vietnamese: ['Schmitt-san là nhân viên công ty'] },
+  { japanese: ['やまだ さん は にほんじん です。'], vietnamese: ['Yamada-san là người Nhật'] },
+  { japanese: ['ワット さん は イギリスじん です。'], vietnamese: ['Watt-san là người Anh'] },
+  { japanese: ['タワボン さん は タイじん です。'], vietnamese: ['Tawabon-san là người Thái'] },
+  { japanese: ['シュミット さん は ドイツじん です。'], vietnamese: ['Schmitt-san là người Đức'] },
+  { japanese: ['やまだ さん は ぎんこういん です。'], vietnamese: ['Yamada-san là nhân viên ngân hàng'] },
+  { japanese: ['ワット さん は せんせい です。'], vietnamese: ['Watt-san là giáo viên'] },
+  { japanese: ['タワボン さん は がくせい です。'], vietnamese: ['Tawabon-san là học sinh'] },
+  { japanese: ['シュミット さん は かいしゃいん です。'], vietnamese: ['Schmitt-san là nhân viên công ty'] },
 ]
 
 const grammarNegativeList: VocabularyItem[] = [
-  { japanese: ['やまださんはがくせいじゃありません。'], vietnamese: ['Yamada-san không phải là học sinh'] },
-  { japanese: ['ワットさんはドイツじんじゃありません。'], vietnamese: ['Watt-san không phải là người Đức'] },
-  { japanese: ['タワボンさんはせんせいじゃありません。'], vietnamese: ['Tawabon-san không phải là giáo viên'] },
-  { japanese: ['シュミットさんはアメリカじんじゃありません。'], vietnamese: ['Schmitt-san không phải là người Mỹ'] },
+  { japanese: ['やまだ さん は がくせい じゃありません。'], vietnamese: ['Yamada-san không phải là học sinh'] },
+  { japanese: ['ワット さん は ドイツじん じゃありません。'], vietnamese: ['Watt-san không phải là người Đức'] },
+  { japanese: ['タワボン さん は せんせい じゃありません。'], vietnamese: ['Tawabon-san không phải là giáo viên'] },
+  { japanese: ['シュミット さん は アメリカじん じゃありません。'], vietnamese: ['Schmitt-san không phải là người Mỹ'] },
 ]
 
 const grammarYesNoList: VocabularyItem[] = [
   { japanese: [
-    'やまださんはぎんこういんですか。',
-    'はい、ぎんこういんです。',
+    'やまだ さん は ぎんこういん です か。',
+    'はい、 ぎんこういん です。',
   ], vietnamese: [
     'Anh Yamada là nhân viên ngân hàng phải không?',
     'Có, anh ấy là nhân viên ngân hàng.',
   ] },
   { japanese: [
-    'ワットさんはかいしゃいんですか。',
-    'いいえ、かいしゃいんじゃありません。',
+    'ワット さん は かいしゃいん です か。',
+    'いいえ、 かいしゃいん じゃありません。',
   ], vietnamese: [
     'Anh Watt là nhân viên công ty phải không?',
     'Không, anh ấy không phải nhân viên công ty.',
   ] },
   { japanese: [
-    'タワボンさんはせんせいですか。',
-    'いいえ、せんせいじゃありません。',
+    'タワボン さん は せんせい です か。',
+    'いいえ、 せんせい じゃありません。',
   ], vietnamese: [
     'Anh Tawabon là giáo viên phải không?',
     'Không, anh ấy không phải giáo viên.',
   ] },
   { japanese: [
-    'シュミットさんはドイツじんですか。',
-    'はい、ドイツじんです。',
+    'シュミット さん は ドイツじん です か。',
+    'はい、 ドイツじん です。',
   ], vietnamese: [
     'Anh Schmitt là người Đức phải không?',
     'Có, anh ấy là người Đức.',
@@ -136,29 +136,29 @@ const grammarYesNoList: VocabularyItem[] = [
 
 const grammarWhoList: VocabularyItem[] = [
   { japanese: [
-    'あのかたはどなたですか。',
-    'イーさんです。AKCのけんきゅうしゃです。',
+    'あの かた は どなた です か。',
+    'イー さん です。 AKC の けんきゅうしゃ です。',
   ], vietnamese: [
     'Người kia là ai vậy?',
     'Anh ấy là anh I. Anh ấy là nhà nghiên cứu của AKC.',
   ] },
   { japanese: [
-    'あのかたはどなたですか。',
-    'ワットさんです。こうべびょういんのいしゃです。',
+    'あの かた は どなた です か。',
+    'ワット さん です。 こうべ びょういん の いしゃ です。',
   ], vietnamese: [
     'Người kia là ai vậy?',
     'Anh ấy là anh Watt. Anh ấy là bác sĩ của bệnh viện Kobe.',
   ] },
   { japanese: [
-    'あのかたはどなたですか。',
-    'カリナさんです。ふじだいがくのがくせいです。',
+    'あの かた は どなた です か。',
+    'カリナ さん です。 ふじ だいがく の がくせい です。',
   ], vietnamese: [
     'Người kia là ai vậy?',
     'Cô ấy là chị Karina. Cô ấy là sinh viên của trường đại học Fuji.',
   ] },
   { japanese: [
-    'あのかたはどなたですか。',
-    'サントスさんです。ブラジルエアーのしゃいんです。',
+    'あの かた は どなた です か。',
+    'サントス さん です。 ブラジルエアー の しゃいん です。',
   ], vietnamese: [
     'Người kia là ai vậy?',
     'Anh ấy là anh Santos. Anh ấy là nhân viên của hãng hàng không Brazil Air.',
@@ -167,29 +167,29 @@ const grammarWhoList: VocabularyItem[] = [
 
 const grammarAgeList: VocabularyItem[] = [
   { japanese: [
-    'やまださんはなんさいですか。',
-    'さんじゅうはつさいです。',
+    'やまだ さん は なんさい です か。',
+    'さんじゅうはつ さい です。',
   ], vietnamese: [
     'Anh/chị Yamada bao nhiêu tuổi?',
     '33 tuổi.',
   ] },
   { japanese: [
-    'ワットさんはなんさいですか。',
-    'よんじゅうごさいです。',
+    'ワット さん は なんさい です か。',
+    'よんじゅうご さい です。',
   ], vietnamese: [
     'Anh Watt bao nhiêu tuổi?',
     '45 tuổi.',
   ] },
   { japanese: [
-    'タワボンさんはなんさいですか。',
-    'じゅうきゅうさいです。',
+    'タワボン さん は なんさい です か。',
+    'じゅうきゅう さい です。',
   ], vietnamese: [
     'Anh Tawabon bao nhiêu tuổi?',
     '19 tuổi.',
   ] },
   { japanese: [
-    'シュミットさんはなんさいですか。',
-    'はたちです。',
+    'シュミット さん は なんさい です か。',
+    'はたち です。',
   ], vietnamese: [
     'Anh Schmitt bao nhiêu tuổi?',
     '20 tuổi.',
