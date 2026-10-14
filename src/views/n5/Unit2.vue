@@ -9,7 +9,7 @@
 
       <PronunciationTable title="Hội thoại" :items="presentList" />
 
-      <PronunciationTable title="Câu hỏi có không" :items="questionList" />
+      <PronunciationTable title="Câu hỏi có không?" :items="questionList" />
 
       <PronunciationTable title="Câu hỏi cái gì đây?" :items="questionWhatList" />
 

@@ -1,32 +1,34 @@
 <template>
-  <div v-if="title || $slots.title" class="mt-5 text">
-    <slot name="title">{{ title }}</slot>
-  </div>
-  <div class="mt-5 table-responsive">
-    <table class="table table-bordered table-hover mb-0 align-middle rounded-3 pronunciation-table">
-      <thead>
-        <tr>
-          <th scope="col"></th>
-          <th scope="col"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(item, index) in items" :key="`${item.japanese?.join('-')}-${index}`">
-          <td>
-            <div v-for="(line, lineIndex) in item.japanese" :key="lineIndex">{{ line }}</div>
-          </td>
-          <td>
-            <IconVolume
-              stroke="2"
-              class="icon-volume"
-              aria-label="Phát âm"
-              @click="playPronunciation(item.japanese?.join('') ?? '')"
-            />
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <section class="lesson-section" :data-section-title="title || 'Từ vựng'">
+    <div v-if="title || $slots.title" class="mt-5 text">
+      <slot name="title">{{ title }}</slot>
+    </div>
+    <div class="mt-5 table-responsive">
+      <table class="table table-bordered table-hover mb-0 align-middle rounded-3 pronunciation-table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(item, index) in items" :key="`${item.japanese?.join('-')}-${index}`">
+            <td>
+              <div v-for="(line, lineIndex) in item.japanese" :key="lineIndex">{{ line }}</div>
+            </td>
+            <td>
+              <IconVolume
+                stroke="2"
+                class="icon-volume"
+                aria-label="Phát âm"
+                @click="playPronunciation(item.japanese?.join('') ?? '')"
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
 </template>
 
 <script setup lang="ts">

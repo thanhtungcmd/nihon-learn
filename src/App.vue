@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
+import { useRoute } from 'vue-router';
+import LessonTableOfContents from '@/components/LessonTableOfContents.vue';
 import SideNavigation from '@/components/SideNavigation.vue';
 import VocabularySearch from '@/components/VocabularySearch.vue';
 import { useSelectionActions } from '@/composables/useSelectionActions';
@@ -8,6 +10,8 @@ import { findTranslationForText } from '@/services/translationRegistry';
 const { showContextMenu, contextMenuStyle, selectedText, runSelectedAction } = useSelectionActions();
 const showTranslation = ref(false);
 const translationText = ref('');
+const route = useRoute();
+const isN5Lesson = computed(() => route.path.startsWith('/n5/'));
 
 function showVietnameseMeaning() {
   const selection = selectedText.value || window.getSelection()?.toString().trim() || '';
@@ -23,19 +27,24 @@ function showVietnameseMeaning() {
   <div class="app-shell">
     <SideNavigation />
     <main class="app-content py-4 py-md-5">
-      <VocabularySearch />
+      <div class="lesson-layout" :class="{ 'has-toc': isN5Lesson }">
+        <div class="lesson-content">
+          <VocabularySearch />
 
-    <div v-if="showContextMenu" class="context-menu" :style="contextMenuStyle">
-      <button type="button" class="btn btn-sm btn-outline-primary w-100 mb-2" @click="runSelectedAction()">Phát âm</button>
-      <button type="button" class="btn btn-sm btn-outline-success w-100" @click="showVietnameseMeaning">Hiện tiếng Việt</button>
-    </div>
+          <div v-if="showContextMenu" class="context-menu" :style="contextMenuStyle">
+            <button type="button" class="btn btn-sm btn-outline-primary w-100 mb-2" @click="runSelectedAction()">Phát âm</button>
+            <button type="button" class="btn btn-sm btn-outline-success w-100" @click="showVietnameseMeaning">Hiện tiếng Việt</button>
+          </div>
 
-    <div v-if="showTranslation" class="translation-card">
-      <div class="fw-semibold mb-1">Tiếng Việt</div>
-      <div>{{ translationText }}</div>
-    </div>
+          <div v-if="showTranslation" class="translation-card">
+            <div class="fw-semibold mb-1">Tiếng Việt</div>
+            <div>{{ translationText }}</div>
+          </div>
 
-      <router-view />
+          <router-view />
+        </div>
+        <LessonTableOfContents v-if="isN5Lesson" />
+      </div>
     </main>
   </div>
 </template>
@@ -46,7 +55,11 @@ function showVietnameseMeaning() {
 html { scrollbar-gutter: stable; }
 body { margin: 0; background: #f8fafc; font-family: "Klee One", serif; }
 .app-shell { display: flex; min-height: 100vh; }
-.app-content { width: min(100%, 1280px); min-width: 0; margin: 0 auto; padding-right: 24px; padding-left: 24px; }
+.app-content { width: min(100%, 1440px); min-width: 0; margin: 0 auto; padding-right: 24px; padding-left: 24px; }
+.lesson-layout { min-width: 0; }
+.lesson-layout.has-toc { display: flex; align-items: flex-start; gap: 24px; }
+.lesson-content { min-width: 0; flex: 1 1 auto; }
+.lesson-section { scroll-margin-top: 24px; }
 table td { font-size: 32px; }
 .text { font-size: 36px; line-height: 170%; }
 rt { font-size: 22px; }
@@ -57,5 +70,7 @@ rt { font-size: 22px; }
 @media (max-width: 767px) {
   .app-shell { display: block; }
   .app-content { padding-right: 16px; padding-left: 16px; }
+  .lesson-layout.has-toc { display: block; }
+  .lesson-toc { display: none; }
 }
 </style>

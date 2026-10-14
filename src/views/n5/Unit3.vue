@@ -9,9 +9,9 @@
 
       <PronunciationTable title="Hội thoại" :items="presentList" />
 
-      <PronunciationTable title="Câu hỏi ở đâu" :items="questionList" />
+      <PronunciationTable title="Câu hỏi ở đâu?" :items="questionList" />
 
-      <PronunciationTable title="Vật này sản xuất ở đâu" :items="questionTwoList" />
+      <PronunciationTable title="Vật này sản xuất ở đâu?" :items="questionTwoList" />
 
       <PronunciationTable title="Vật này bao nhiêu tiền?" :items="questionThreeList" />
 

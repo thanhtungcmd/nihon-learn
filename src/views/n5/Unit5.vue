@@ -18,7 +18,7 @@
 
       <PronunciationTable title="Luyện tập tổng hợp" :items="wherePractice" />
 
-      <PronunciationTable title="Bạn đến đâu lúc mấy giờ?" :items="whereTimeQuestion" />
+      <PronunciationTable title="Luyện tập tổng hợp 2" :items="wherePracticeTwo" />
 
     </div>
   </section>
@@ -253,7 +253,7 @@ const wherePractice: VocabularyItem[] = [
   ] },
 ]
 
-const whereTimeQuestion: VocabularyItem[] = [
+const wherePracticeTwo: VocabularyItem[] = [
   { japanese: [
     'まいあさ なんじ に かいしゃ へ いきます か。',
     '７ じ はん に いきます。',
@@ -276,11 +276,11 @@ const whereTimeQuestion: VocabularyItem[] = [
     'Tôi đã đi cùng anh Kimura.'
   ] },
   { japanese: [
-    '',
-    ''
+    'どようび どこ へ いきます か。',
+    'どこ へ も いきません。'
   ], vietnamese: [
-    '',
-    ''
+    'Thứ Bảy bạn sẽ đi đâu.',
+    'Tôi không đi đâu cả.'
   ] },
 ]
 
@@ -291,7 +291,7 @@ registerTranslationEntries([
   ...wherePersonQuestion,
   ...whereWhenQuestion,
   ...wherePractice,
-  ...whereTimeQuestion
+  ...wherePracticeTwo
 ]);
 
 useSelectionActions({
