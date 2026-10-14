@@ -45,10 +45,14 @@ const navigationGroups = [
   },
   {
     label: 'JLPT N5',
-    links: Array.from({ length: 5 }, (_, index) => ({
-      to: `/n5/unit${index + 1}`,
-      label: `Bài ${index + 1}`,
-    })),
+    links: [
+      { to: '/n5/unit1', label: 'Bài 1' },
+      { to: '/n5/unit1/vocabulary-quiz', label: 'Ôn từ vựng Bài 1' },
+      ...Array.from({ length: 4 }, (_, index) => ({
+        to: `/n5/unit${index + 2}`,
+        label: `Bài ${index + 2}`,
+      })),
+    ],
   },
 ];
 </script>

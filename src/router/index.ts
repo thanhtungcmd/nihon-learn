@@ -14,6 +14,7 @@ const N5Unit2 = () => import('@/views/n5/Unit2.vue')
 const N5Unit3 = () => import('@/views/n5/Unit3.vue')
 const N5Unit4 = () => import('@/views/n5/Unit4.vue')
 const N5Unit5 = () => import('@/views/n5/Unit5.vue')
+const N5Unit1VocabularyQuiz = () => import('@/views/n5/Unit1VocabularyQuiz.vue')
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,6 +28,7 @@ const router = createRouter({
     { path: '/polite-verb-forms', component: PoliteVerbForms },
 
     { path: '/n5/unit1', component: N5Unit1 },
+    { path: '/n5/unit1/vocabulary-quiz', component: N5Unit1VocabularyQuiz },
     { path: '/n5/unit2', component: N5Unit2 },
     { path: '/n5/unit3', component: N5Unit3 },
     { path: '/n5/unit4', component: N5Unit4 },
