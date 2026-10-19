@@ -33,49 +33,14 @@ import PronunciationTable from '@/components/PronunciationTable.vue';
 import { useSelectionActions } from '@/composables/useSelectionActions';
 import { playJapanesePronunciation } from '@/services/pollyService';
 import { registerTranslationEntries } from '@/services/translationRegistry';
+import { unit2Vocabulary } from '@/data/n5/unitVocabulary';
 
 interface VocabularyItem {
   japanese?: string[];
   vietnamese?: string[];
 }
 
-const vocabularyList: VocabularyItem[] = [
-  { japanese: ['これ'], vietnamese: ['cái này'] },
-  { japanese: ['それ'], vietnamese: ['cái đó'] },
-  { japanese: ['あれ'], vietnamese: ['cái kia'] },
-  { japanese: ['ほん'], vietnamese: ['sách'] },
-  { japanese: ['じしょ'], vietnamese: ['từ điển'] },
-  { japanese: ['ざつし'], vietnamese: ['tạp chí'] },
-  { japanese: ['しんぶん'], vietnamese: ['báo'] },
-  { japanese: ['ノート'], vietnamese: ['vở ghi chép'] },
-  { japanese: ['てちょう'], vietnamese: ['thẻ'] },
-  { japanese: ['めいし'], vietnamese: ['thẻ tên'] },
-  { japanese: ['カード'], vietnamese: ['thẻ'] },
-  { japanese: ['えんぴつ'], vietnamese: ['bút chì'] },
-  { japanese: ['ボールペン'], vietnamese: ['bút bi'] },
-  { japanese: ['シャープペンシル'], vietnamese: ['bút chì kim'] },
-  { japanese: ['かぎ'], vietnamese: ['chìa khóa'] },
-  { japanese: ['とけい'], vietnamese: ['đồng hồ'] },
-  { japanese: ['かさ'], vietnamese: ['cái ô'] },
-  { japanese: ['かばん'], vietnamese: ['cặp sách'] },
-  { japanese: ['テレビ'], vietnamese: ['tivi'] },
-  { japanese: ['ラジオ'], vietnamese: ['radio'] },
-  { japanese: ['カメラ'], vietnamese: ['máy ảnh'] },
-  { japanese: ['コンピューター'], vietnamese: ['máy tính'] },
-  { japanese: ['つくえ'], vietnamese: ['cái bàn'] },
-  { japanese: ['いす'], vietnamese: ['cái ghế'] },
-  { japanese: ['チョコレート'], vietnamese: ['sô cô la'] },
-  { japanese: ['コーヒー'], vietnamese: ['cà phê'] },
-  { japanese: ['おみやげ'], vietnamese: ['quà lưu niệm'] },
-  { japanese: ['えいご'], vietnamese: ['tiếng Anh'] },
-  { japanese: ['にほんご'], vietnamese: ['tiếng Nhật'] },
-  { japanese: ['そう'], vietnamese: ['đúng rồi'] },
-  { japanese: ['あのう'], vietnamese: ['ừm/à'] },
-  { japanese: ['えつ'], vietnamese: ['đúng rồi'] },
-  { japanese: ['どうぞ'], vietnamese: ['xin mời'] },
-  { japanese: ['そうですか'], vietnamese: ['thế à'] },
-  { japanese: ['ちがいます'], vietnamese: ['không đúng'] },
-]
+const vocabularyList: VocabularyItem[] = unit2Vocabulary;
 
 const presentList: VocabularyItem[] = [
   { japanese: ['これ は ほん です。'], vietnamese: ['Đây là cuốn sách.'] },

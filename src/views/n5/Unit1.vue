@@ -28,6 +28,7 @@ import PronunciationTable from '@/components/PronunciationTable.vue';
 import { useSelectionActions } from '@/composables/useSelectionActions';
 import { playJapanesePronunciation } from '@/services/pollyService';
 import { registerTranslationEntries } from '@/services/translationRegistry';
+import { unit1Vocabulary } from '@/data/n5/unitVocabulary';
 
 interface VocabularyItem {
   japanese?: string[];
@@ -39,40 +40,7 @@ useSelectionActions({
   shortcutKey: 'k',
 });
 
-const vocabularyList: VocabularyItem[] = [
-  { japanese: ['わたし'], vietnamese: ['tôi'] },
-  { japanese: ['あにた'], vietnamese: ['bạn'] },
-  { japanese: ['あのひと'], vietnamese: ['bạn kia'] },
-  { japanese: ['～さん'], vietnamese: ['~ hậu tố thêm phía sau để lịch sự'] },
-  { japanese: ['～ちゃん'], vietnamese: ['~ hậu tố thêm phía sau tên trẻ em'] },
-  { japanese: ['～じん'], vietnamese: ['~ hậu tố chỉ người'] },
-  { japanese: ['せんせい'], vietnamese: ['giáo viên trang trọng'] },
-  { japanese: ['きょうし'], vietnamese: ['giáo viên'] },
-  { japanese: ['がくせい'], vietnamese: ['học sinh'] },
-  { japanese: ['かいしゃいん'], vietnamese: ['nhân viên công ty'] },
-  { japanese: ['しゃいん'], vietnamese: ['nhân viên công ty'] },
-  { japanese: ['ぎんこういん'], vietnamese: ['nhân viên ngân hàng'] },
-  { japanese: ['いしゃ'], vietnamese: ['bác sĩ'] },
-  { japanese: ['けんきゅうしゃ'], vietnamese: ['nhà nghiên cứu'] },
-  { japanese: ['エンジニア'], vietnamese: ['kỹ sư'] },
-  { japanese: ['だいがく'], vietnamese: ['đại học'] },
-  { japanese: ['びょういん'], vietnamese: ['bệnh viện'] },
-  { japanese: ['だれ', '(どなた)'], vietnamese: ['Ai?', 'どなた cách nói lịch sự', 'だれ cách nói thông thường'] },
-  { japanese: ['～さい'], vietnamese: ['~ tuổi'] },
-  { japanese: ['なんさい', '(おいくつ)'], vietnamese: ['bao nhiêu tuổi?', 'なんさい nói thông thường', 'ないくつ nói lịch sự'] },
-  { japanese: ['はい'], vietnamese: ['vâng'] },
-  { japanese: ['いいえ'], vietnamese: ['không'] },
-  { japanese: ['はじめまして'], vietnamese: ['rất hân hạnh được gặp anh chị'] },
-  { japanese: ['～ から きました'], vietnamese: ['tôi đến từ ~'] },
-  { japanese: ['どうぞ よろしく', '[おねがい します]'], vietnamese: ['rất vui khi được làm quen'] },
-  { japanese: ['しつれい です が'], vietnamese: ['xin lỗi (khi muốn hỏi thông tin)'] },
-  { japanese: ['おなまえ は？'], vietnamese: ['tên anh chị là gì?'] },
-  { japanese: ['こちら は ～ さん です'], vietnamese: ['đây là anh/chị ~'] },
-  { japanese: ['アメリカ'], vietnamese: ['nước Mỹ'] },
-  { japanese: ['イギリス'], vietnamese: ['nước Anh'] },
-  { japanese: ['イソド'], vietnamese: ['Ấn Độ'] },
-  { japanese: ['イソドネシア'], vietnamese: ['Indonesia'] },
-];
+const vocabularyList: VocabularyItem[] = unit1Vocabulary;
 
 const questionList: VocabularyItem[] = [
   { japanese: ['はじめまして。'], vietnamese: ['Rất vui được gặp bạn'] },

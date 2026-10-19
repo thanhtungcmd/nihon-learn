@@ -25,37 +25,14 @@ import PronunciationTable from '@/components/PronunciationTable.vue';
 import { useSelectionActions } from '@/composables/useSelectionActions';
 import { playJapanesePronunciation } from '@/services/pollyService';
 import { registerTranslationEntries } from '@/services/translationRegistry';
+import { unit3Vocabulary } from '@/data/n5/unitVocabulary';
 
 interface VocabularyItem {
   japanese?: string[];
   vietnamese?: string[];
 }
 
-const vocabularyList: VocabularyItem[] = [
-  { japanese: ['ここ'], vietnamese: ['chỗ này'] },
-  { japanese: ['そこ'], vietnamese: ['chỗ đó'] },
-  { japanese: ['あそこ'], vietnamese: ['chỗ kia'] },
-  { japanese: ['どご'], vietnamese: ['chỗ nào'] },
-  { japanese: ['こちら'], vietnamese: ['chỗ này lịch sự'] },
-  { japanese: ['そちら'], vietnamese: ['chỗ đó lịch sự'] },
-  { japanese: ['あちら'], vietnamese: ['chỗ kia lịch sự'] },
-  { japanese: ['どちら'], vietnamese: ['chỗ nào lịch sự'] },
-  { japanese: ['きょうしつ'], vietnamese: ['lớp học'] },
-  { japanese: ['しょくどう'], vietnamese: ['nhà ăn'] },
-  { japanese: ['じむしょ'], vietnamese: ['văn phòng'] },
-  { japanese: ['かいぎしつ'], vietnamese: ['phòng họp'] },
-  { japanese: ['うけつけ'], vietnamese: ['quầy lễ tân'] },
-  { japanese: ['ロビー'], vietnamese: ['hành lang'] },
-  { japanese: ['へや'], vietnamese: ['căn phòng'] },
-  { japanese: ['トイレ'], vietnamese: ['nhà vệ sinh'] },
-  { japanese: ['かいだん'], vietnamese: ['cầu thang'] },
-  { japanese: ['じどうはんばいき'], vietnamese: ['máy bán hàng tự động'] },
-  { japanese: ['うち'], vietnamese: ['nhà'] },
-  { japanese: ['えん'], vietnamese: ['đồng yên'] },
-  { japanese: ['ひゃく'], vietnamese: ['trăm'] },
-  { japanese: ['せん'], vietnamese: ['nghìn'] },
-  { japanese: ['まん'], vietnamese: ['vạn'] },
-];
+const vocabularyList: VocabularyItem[] = unit3Vocabulary;
 
 const presentList: VocabularyItem[] = [
   { japanese: ['ここ は うけつけ です。'], vietnamese: ['Đây là quầy lễ tân.'] },

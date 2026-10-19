@@ -48,10 +48,13 @@ const navigationGroups = [
     links: [
       { to: '/n5/unit1', label: 'Bài 1' },
       { to: '/n5/unit1/vocabulary-quiz', label: 'Ôn từ vựng Bài 1' },
-      ...Array.from({ length: 4 }, (_, index) => ({
-        to: `/n5/unit${index + 2}`,
-        label: `Bài ${index + 2}`,
-      })),
+      ...Array.from({ length: 4 }, (_, index) => {
+        const unit = index + 2;
+        return [
+          { to: `/n5/unit${unit}`, label: `Bài ${unit}` },
+          { to: `/n5/unit${unit}/vocabulary-quiz`, label: `Ôn từ vựng Bài ${unit}` },
+        ];
+      }).flat(),
     ],
   },
 ];

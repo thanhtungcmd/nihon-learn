@@ -32,56 +32,14 @@ import PronunciationTable from '@/components/PronunciationTable.vue';
 import { useSelectionActions } from '@/composables/useSelectionActions';
 import { playJapanesePronunciation } from '@/services/pollyService';
 import { registerTranslationEntries } from '@/services/translationRegistry';
+import { unit4Vocabulary } from '@/data/n5/unitVocabulary';
 
 interface VocabularyItem {
   japanese?: string[];
   vietnamese?: string[];
 }
 
-const vocabularyList: VocabularyItem[] = [
-  { japanese: ['おきます'], vietnamese: ['dậy, thức dậy'] },
-  { japanese: ['ねます'], vietnamese: ['ngủ, đi ngủ'] },
-  { japanese: ['はたらきます'], vietnamese: ['làm việc'] },
-  { japanese: ['やすみます'], vietnamese: ['nghỉ ngơi'] },
-  { japanese: ['べんきょうします'], vietnamese: ['học'] },
-  { japanese: ['おわります'], vietnamese: ['kết thúc'] },
-  { japanese: ['デパート'], vietnamese: ['bách hóa'] },
-  { japanese: ['ぎんこう'], vietnamese: ['ngân hàng'] },
-  { japanese: ['ゆうびんきょく'], vietnamese: ['bưu điện'] },
-  { japanese: ['びじゅつかん'], vietnamese: ['bảo tàng mỹ thuật'] },
-  { japanese: ['としょかん'], vietnamese: ['thư viện'] },
-  { japanese: ['いま'], vietnamese: ['bây giờ'] },
-  { japanese: ['ーじ'], vietnamese: ['giờ'] },
-  { japanese: ['ーぷん'], vietnamese: ['phút'] },
-  { japanese: ['はん'], vietnamese: ['rưỡi, nửa'] },
-  { japanese: ['なんじ'], vietnamese: ['mấy giờ'] },
-  { japanese: ['なんぷん'], vietnamese: ['mấy phút'] },
-  { japanese: ['ごぜん'], vietnamese: ['AM'] },
-  { japanese: ['ごご'], vietnamese: ['PM'] },
-  { japanese: ['あさ'], vietnamese: ['sáng'] },
-  { japanese: ['ひる'], vietnamese: ['trưa'] },
-  { japanese: ['ばん'], vietnamese: ['tối'] },
-  { japanese: ['あととい'], vietnamese: ['hôm kia'] },
-  { japanese: ['きのう'], vietnamese: ['hôm qua'] },
-  { japanese: ['きょう'], vietnamese: ['hôm nay'] },
-  { japanese: ['あした'], vietnamese: ['ngày mai'] },
-  { japanese: ['あさって'], vietnamese: ['ngày kia'] },
-  { japanese: ['けさ'], vietnamese: ['sáng nay'] },
-  { japanese: ['こんばん'], vietnamese: ['tối nay'] },
-  { japanese: ['やすみ'], vietnamese: ['nghỉ phép'] },
-  { japanese: ['ひるやすみ'], vietnamese: ['nghỉ trưa'] },
-  { japanese: ['まいあさ'], vietnamese: ['mỗi sáng'] },
-  { japanese: ['まいばん'], vietnamese: ['mỗi tối'] },
-  { japanese: ['まいにち'], vietnamese: ['hằng ngày'] },
-  { japanese: ['ばつようび'], vietnamese: ['thứ 2'] },
-  { japanese: ['かようび'], vietnamese: ['thứ 3'] },
-  { japanese: ['すいようび'], vietnamese: ['thứ 4'] },
-  { japanese: ['もくようび'], vietnamese: ['thứ 5'] },
-  { japanese: ['きんようび'], vietnamese: ['thứ 6'] },
-  { japanese: ['どようび'], vietnamese: ['thứ 7'] },
-  { japanese: ['にちようび'], vietnamese: ['chủ nhật'] },
-  { japanese: ['なんようび'], vietnamese: ['thứ mấy'] },
-];
+const vocabularyList: VocabularyItem[] = unit4Vocabulary;
 
 const timeList: VocabularyItem[] = [
   { japanese: ['７ じ はん です。'], vietnamese: ['7h30'] },
