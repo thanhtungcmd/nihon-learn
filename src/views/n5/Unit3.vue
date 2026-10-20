@@ -56,7 +56,7 @@ const questionList: VocabularyItem[] = [
       'じどうはんばいき は どこ です か。',
       'そこ です。',
     ], vietnamese: [
-      'Phòng họp ở đâu?',
+      'Máy bán hàng tự động ở đâu?',
       'Ở đây.',
     ]
   },
@@ -66,7 +66,7 @@ const questionList: VocabularyItem[] = [
       'あそこ です。',
     ], vietnamese: [
       'Yamada ở đâu?',
-      'Ở đây.',
+      'Ở kia.',
     ]
   },
   {

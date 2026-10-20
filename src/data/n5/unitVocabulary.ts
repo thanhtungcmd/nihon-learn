@@ -91,7 +91,7 @@ export const unit3Vocabulary: UnitVocabularyItem[] = [
   { japanese: ['ここ'], vietnamese: ['chỗ này'] },
   { japanese: ['そこ'], vietnamese: ['chỗ đó'] },
   { japanese: ['あそこ'], vietnamese: ['chỗ kia'] },
-  { japanese: ['どご'], vietnamese: ['chỗ nào'] },
+  { japanese: ['どこ'], vietnamese: ['chỗ nào'] },
   { japanese: ['こちら'], vietnamese: ['chỗ này lịch sự'] },
   { japanese: ['そちら'], vietnamese: ['chỗ đó lịch sự'] },
   { japanese: ['あちら'], vietnamese: ['chỗ kia lịch sự'] },
