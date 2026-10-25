@@ -34,7 +34,7 @@ function createCycle() {
     const randomIndex = Math.floor(Math.random() * (index + 1));
     [cycle[index], cycle[randomIndex]] = [cycle[randomIndex]!, cycle[index]!];
   }
-  if (cycle.length > 1 && cycle[0]!.japanese === currentSentence.value?.japanese) {
+  if (cycle.length > 1 && cycle[0]!.japanese.join('') === currentSentence.value?.japanese.join('')) {
     [cycle[0], cycle[cycle.length - 1]] = [cycle[cycle.length - 1]!, cycle[0]!];
   }
   return cycle;
@@ -57,7 +57,7 @@ function record(correct: boolean) {
 
 function submitAnswer() {
   if (!answer.value.trim() || !currentSentence.value) return;
-  record(normalizeJapanese(answer.value) === normalizeJapanese(currentSentence.value.japanese));
+  record(normalizeJapanese(answer.value) === normalizeJapanese(currentSentence.value.japanese.join('')));
 }
 
 nextQuestion();
@@ -80,7 +80,9 @@ nextQuestion();
       </div>
       <div class="question-card mx-auto">
         <p class="text-uppercase question-label">Dịch sang tiếng Nhật</p>
-        <p class="vietnamese-sentence">{{ currentSentence?.vietnamese }}</p>
+        <div class="vietnamese-sentences">
+          <p v-for="(sentence, index) in currentSentence?.vietnamese" :key="index" class="vietnamese-sentence">{{ sentence }}</p>
+        </div>
         <p class="grammar-hint">Mẫu ngữ pháp: <strong>{{ currentSentence?.grammar }}</strong></p>
         <form class="mt-4" @submit.prevent="submitAnswer">
           <label class="form-label fw-semibold" for="japanese-answer">Câu tiếng Nhật của bạn</label>
@@ -93,7 +95,10 @@ nextQuestion();
         <div v-if="feedback" class="feedback mt-4" :class="feedback.correct ? 'is-correct' : 'is-incorrect'" role="status">
           <strong>{{ feedback.correct ? '✓ Chính xác!' : '✕ Chưa đúng' }}</strong>
           <span v-if="feedback.correct">Bạn đã viết đúng câu tiếng Nhật.</span>
-          <template v-else><span>Đáp án tham khảo:</span><span class="correct-answer" lang="ja">{{ feedback.sentence.japanese }}</span></template>
+          <template v-else>
+            <span>Đáp án tham khảo:</span>
+            <span v-for="(sentence, index) in feedback.sentence.japanese" :key="index" class="correct-answer" lang="ja">{{ sentence }}</span>
+          </template>
         </div>
         <button v-if="feedback" class="btn btn-primary btn-lg mt-3 px-5" type="button" @click="nextQuestion">Câu tiếp theo</button>
       </div>
@@ -106,7 +111,7 @@ nextQuestion();
 .scoreboard { display: flex; flex-wrap: wrap; gap: 8px; font-weight: 700; }.scoreboard span { padding: 7px 10px; border-radius: 999px; }
 .score-correct { background: #f0fdf4; color: #166534; }.score-incorrect { background: #fef2f2; color: #991b1b; }.score-total { background: #eff6ff; color: #1d4ed8; }
 .question-card { max-width: 680px; padding: 32px 24px; border: 1px solid #dbeafe; border-radius: 18px; background: linear-gradient(145deg, #f8fbff, #eff6ff); }
-.question-label { margin: 0; color: #64748b; font-size: 13px; font-weight: 700; letter-spacing: .12em; }.vietnamese-sentence { margin: 18px 0 12px; color: #0f172a; font-size: clamp(24px, 4vw, 34px); font-weight: 600; line-height: 1.55; }
+.question-label { margin: 0; color: #64748b; font-size: 13px; font-weight: 700; letter-spacing: .12em; }.vietnamese-sentences { margin: 18px 0 12px; }.vietnamese-sentence { margin: 0; color: #0f172a; font-size: clamp(24px, 4vw, 34px); font-weight: 600; line-height: 1.55; }.vietnamese-sentence + .vietnamese-sentence { margin-top: 8px; }
 .grammar-hint { display: inline-block; margin: 0; padding: 6px 10px; border-radius: 8px; background: #dbeafe; color: #1e40af; }.answer-input { font-family: system-ui, sans-serif; font-size: 20px; line-height: 1.6; }
 .feedback { display: flex; flex-direction: column; gap: 4px; padding: 14px 18px; border-radius: 12px; }.feedback.is-correct { background: #f0fdf4; color: #166534; }.feedback.is-incorrect { background: #fef2f2; color: #991b1b; }.correct-answer { font-size: 20px; font-weight: 700; }
 </style>

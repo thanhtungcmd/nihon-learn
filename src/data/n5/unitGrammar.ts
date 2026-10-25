@@ -1,6 +1,6 @@
 export interface N5GrammarSentence {
-  vietnamese: string;
-  japanese: string;
+  vietnamese: string[];
+  japanese: string[];
   grammar: string;
 }
 
@@ -13,13 +13,13 @@ export type UnitGrammarData = Record<string, GrammarLessonItem[]>;
 
 export function toGrammarSentences(unit: number, grammarData: UnitGrammarData): N5GrammarSentence[] {
   return Object.values(grammarData).flatMap((items) =>
-    items.flatMap(({ japanese = [], vietnamese = [] }) =>
-      japanese.slice(0, vietnamese.length).map((japanese, index) => ({
+    items
+      .filter(({ japanese = [], vietnamese = [] }) => japanese.length > 0 && japanese.length === vietnamese.length)
+      .map(({ japanese = [], vietnamese = [] }) => ({
         japanese,
-        vietnamese: vietnamese[index]!,
+        vietnamese,
         grammar: `Câu mẫu Bài ${unit}`,
       })),
-    ),
   );
 }
 
@@ -27,9 +27,9 @@ export const unit1Grammar = {
   questionList: [
     { japanese: ['はじめまして。'], vietnamese: ['Rất vui được gặp bạn'] },
     { japanese: ['おなまえ は？'], vietnamese: ['Tên của bạn là gì?'] },
-    { japanese: ['(わたし は) トゥン です'], vietnamese: ['Tên tôi là Tùng'] },
+    { japanese: ['わたし は トゥン です'], vietnamese: ['Tên tôi là Tùng'] },
     { japanese: ['おしごと は？'], vietnamese: ['Công việc của bạn là gì?'] },
-    { japanese: ['(わたし は) エンジニア です'], vietnamese: ['Công việc của tôi là kỹ sư'] },
+    { japanese: ['わたし は エンジニア です'], vietnamese: ['Công việc của tôi là kỹ sư'] },
     { japanese: ['ことし は にじゅうなな さい です'], vietnamese: ['Năm nay tôi 27 tuổi'] },
     { japanese: ['ベトナム から きました'], vietnamese: ['Tôi đến từ việt nam'] },
     { japanese: ['どうぞ よろしく おねがい します。'], vietnamese: ['Rất mong được giúp đỡ'] },
