@@ -148,7 +148,7 @@ export const unit4Vocabulary: UnitVocabularyItem[] = [
   { japanese: ['まいあさ'], vietnamese: ['mỗi sáng'] },
   { japanese: ['まいばん'], vietnamese: ['mỗi tối'] },
   { japanese: ['まいにち'], vietnamese: ['hằng ngày'] },
-  { japanese: ['ばつようび'], vietnamese: ['thứ 2'] },
+  { japanese: ['げつようび'], vietnamese: ['thứ 2'] },
   { japanese: ['かようび'], vietnamese: ['thứ 3'] },
   { japanese: ['すいようび'], vietnamese: ['thứ 4'] },
   { japanese: ['もくようび'], vietnamese: ['thứ 5'] },

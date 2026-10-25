@@ -19,6 +19,11 @@ const N5Unit2VocabularyQuiz = () => import('@/views/n5/Unit2VocabularyQuiz.vue')
 const N5Unit3VocabularyQuiz = () => import('@/views/n5/Unit3VocabularyQuiz.vue')
 const N5Unit4VocabularyQuiz = () => import('@/views/n5/Unit4VocabularyQuiz.vue')
 const N5Unit5VocabularyQuiz = () => import('@/views/n5/Unit5VocabularyQuiz.vue')
+const N5Unit1GrammarQuiz = () => import('@/views/n5/Unit1GrammarQuiz.vue')
+const N5Unit2GrammarQuiz = () => import('@/views/n5/Unit2GrammarQuiz.vue')
+const N5Unit3GrammarQuiz = () => import('@/views/n5/Unit3GrammarQuiz.vue')
+const N5Unit4GrammarQuiz = () => import('@/views/n5/Unit4GrammarQuiz.vue')
+const N5Unit5GrammarQuiz = () => import('@/views/n5/Unit5GrammarQuiz.vue')
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -33,14 +38,19 @@ const router = createRouter({
 
     { path: '/n5/unit1', component: N5Unit1 },
     { path: '/n5/unit1/vocabulary-quiz', component: N5Unit1VocabularyQuiz },
+    { path: '/n5/unit1/grammar-quiz', component: N5Unit1GrammarQuiz },
     { path: '/n5/unit2', component: N5Unit2 },
     { path: '/n5/unit2/vocabulary-quiz', component: N5Unit2VocabularyQuiz },
+    { path: '/n5/unit2/grammar-quiz', component: N5Unit2GrammarQuiz },
     { path: '/n5/unit3', component: N5Unit3 },
     { path: '/n5/unit3/vocabulary-quiz', component: N5Unit3VocabularyQuiz },
+    { path: '/n5/unit3/grammar-quiz', component: N5Unit3GrammarQuiz },
     { path: '/n5/unit4', component: N5Unit4 },
     { path: '/n5/unit4/vocabulary-quiz', component: N5Unit4VocabularyQuiz },
+    { path: '/n5/unit4/grammar-quiz', component: N5Unit4GrammarQuiz },
     { path: '/n5/unit5', component: N5Unit5 },
     { path: '/n5/unit5/vocabulary-quiz', component: N5Unit5VocabularyQuiz },
+    { path: '/n5/unit5/grammar-quiz', component: N5Unit5GrammarQuiz },
   ],
 })
 
