@@ -77,43 +77,47 @@ const navigationGroups = [
       </button>
     </div>
     <nav v-show="!isCollapsed" aria-label="Điều hướng bài học">
-      <section v-for="group in navigationGroups" :key="group.label" class="navigation-group">
-        <h2>{{ group.label }}</h2>
-        <RouterLink v-for="link in group.links" :key="link.to" :to="link.to" class="navigation-link">
-          {{ link.label }}
-        </RouterLink>
-      </section>
+      <details v-for="group in navigationGroups" :key="group.label" class="navigation-group" open>
+        <summary>{{ group.label }}</summary>
+        <div class="navigation-links">
+          <RouterLink v-for="link in group.links" :key="link.to" :to="link.to" class="navigation-link">
+            {{ link.label }}
+          </RouterLink>
+        </div>
+      </details>
     </nav>
     <div class="resize-handle" role="separator" aria-orientation="vertical" aria-label="Kéo để đổi độ rộng menu" @pointerdown="startResize" />
   </aside>
 </template>
 
 <style scoped>
-.side-navigation { position: sticky; top: 0; align-self: start; width: var(--sidebar-width); min-height: 100vh; padding: 20px 16px; border-right: 1px solid #e2e8f0; background: #fff; transition: width .2s ease, padding .2s ease; }
+.side-navigation { position: sticky; top: 0; display: flex; flex-direction: column; align-self: start; width: var(--sidebar-width); height: 100vh; padding: 20px 16px; border-right: 1px solid #e2e8f0; background: #fff; transition: width .2s ease, padding .2s ease; }
 .side-navigation.is-collapsed { width: 64px; padding-right: 8px; padding-left: 8px; }
 .side-navigation.is-resizing { transition: none; user-select: none; }
 .navigation-header { display: flex; align-items: center; justify-content: space-between; margin: 0 0 28px; }
+.side-navigation nav { min-height: 0; overflow-y: auto; }
 .brand { display: block; margin: 0 8px; color: #0f172a; font-size: 22px; font-weight: 700; text-decoration: none; white-space: nowrap; }
 .menu-toggle { display: grid; flex: 0 0 auto; width: 36px; height: 36px; place-items: center; border: 0; border-radius: 8px; background: transparent; color: #475569; font-size: 20px; cursor: pointer; }
 .menu-toggle:hover, .menu-toggle:focus-visible { background: #f1f5f9; color: #0f172a; }
 .resize-handle { position: absolute; top: 0; right: -4px; width: 8px; height: 100%; cursor: col-resize; touch-action: none; }
 .resize-handle:hover, .resize-handle:active { background: rgba(59, 130, 246, .3); }
 .navigation-group + .navigation-group { margin-top: 24px; }
-.navigation-group h2 { margin: 0 8px 8px; color: #64748b; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.navigation-group summary { margin: 0 8px 8px; color: #64748b; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; }
 .navigation-link { display: block; padding: 9px 12px; border-radius: 8px; color: #475569; text-decoration: none; }
 .navigation-link:hover { background: #f1f5f9; color: #0f172a; }
 .navigation-link.router-link-exact-active { background: #dbeafe; color: #1d4ed8; font-weight: 700; }
 
 @media (max-width: 767px) {
-  .side-navigation, .side-navigation.is-collapsed { position: static; display: flex; width: 100%; min-height: auto; align-items: center; gap: 16px; padding: 12px 16px; overflow-x: auto; border-right: 0; border-bottom: 1px solid #e2e8f0; }
+  .side-navigation, .side-navigation.is-collapsed { position: static; flex-direction: row; width: 100%; height: auto; align-items: center; gap: 16px; padding: 12px 16px; overflow-x: auto; border-right: 0; border-bottom: 1px solid #e2e8f0; }
   .navigation-header { flex: 0 0 auto; margin: 0; }
   .brand { margin: 0; font-size: 18px; }
   .menu-toggle { display: none; }
   .resize-handle { display: none; }
-  .side-navigation nav { display: flex; gap: 16px; }
-  .navigation-group { display: flex; gap: 4px; align-items: center; white-space: nowrap; }
+  .side-navigation nav { display: flex; gap: 16px; overflow: visible; }
+  .navigation-group { white-space: nowrap; }
+  .navigation-group[open], .navigation-links { display: flex; gap: 4px; align-items: center; }
   .navigation-group + .navigation-group { margin-top: 0; }
-  .navigation-group h2 { display: none; }
+  .navigation-group summary { margin: 0 8px; }
   .navigation-link { padding: 7px 10px; }
 }
 </style>

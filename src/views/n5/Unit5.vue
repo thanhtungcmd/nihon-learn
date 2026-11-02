@@ -4,7 +4,7 @@
       <h1 class="mt-3 mb-3">Lesson 5</h1>
 
       <div class="text"><ruby>語彙<rt>ごい</rt></ruby></div>
-      <PronunciationTable :items="vocabularyList" />
+      <PronunciationTable :items="vocabularyList" show-vietnamese />
 
       <PronunciationTable title="Tôi đi đâu đó" :items="whereFromStatement" />
 

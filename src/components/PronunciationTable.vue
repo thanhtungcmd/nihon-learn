@@ -4,10 +4,11 @@
       <slot name="title">{{ title }}</slot>
     </div>
     <div class="mt-5 table-responsive">
-      <table class="table table-bordered table-hover mb-0 align-middle rounded-3 pronunciation-table">
+      <table class="table table-bordered table-hover mb-0 align-middle rounded-3 pronunciation-table" :class="{ 'with-vietnamese': showVietnamese }">
         <thead>
           <tr>
             <th scope="col"></th>
+            <th v-if="showVietnamese" scope="col">Tiếng Việt</th>
             <th scope="col"></th>
           </tr>
         </thead>
@@ -15,6 +16,9 @@
           <tr v-for="(item, index) in items" :key="`${item.japanese?.join('-')}-${index}`">
             <td>
               <div v-for="(line, lineIndex) in item.japanese" :key="lineIndex">{{ line }}</div>
+            </td>
+            <td v-if="showVietnamese">
+              <div v-for="(line, lineIndex) in item.vietnamese" :key="lineIndex">{{ line }}</div>
             </td>
             <td>
               <IconVolume
@@ -37,11 +41,13 @@ import { playJapanesePronunciation } from '@/services/pollyService';
 
 export type PronunciationItem = {
   japanese?: string[];
+  vietnamese?: string[];
 };
 
 defineProps<{
   items: PronunciationItem[];
   title?: string;
+  showVietnamese?: boolean;
 }>();
 async function playPronunciation(text: string) {
   try {
@@ -61,6 +67,7 @@ async function playPronunciation(text: string) {
 
 .pronunciation-table th:first-child { width: 90%; }
 .pronunciation-table th:last-child { width: 10%; }
+.pronunciation-table.with-vietnamese th:first-child { width: 45%; }
 
 .icon-volume { cursor: pointer; }
 </style>

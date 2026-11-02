@@ -5,7 +5,7 @@
 
       <div class="text"><ruby>語彙<rt>ごい</rt></ruby></div>
 
-      <PronunciationTable :items="vocabularyList" />
+      <PronunciationTable :items="vocabularyList" show-vietnamese />
 
       <PronunciationTable title="Hội thoại" :items="presentList" />
 
