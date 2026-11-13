@@ -15,6 +15,9 @@ const N5Unit2 = () => import('@/views/n5/Unit2.vue')
 const N5Unit3 = () => import('@/views/n5/Unit3.vue')
 const N5Unit4 = () => import('@/views/n5/Unit4.vue')
 const N5Unit5 = () => import('@/views/n5/Unit5.vue')
+const N5Unit6 = () => import('@/views/n5/Unit6.vue')
+const N5Unit6VocabularyQuiz = () => import('@/views/n5/Unit6VocabularyQuiz.vue')
+const N5Unit6GrammarQuiz = () => import('@/views/n5/Unit6GrammarQuiz.vue')
 const N5Unit1VocabularyQuiz = () => import('@/views/n5/Unit1VocabularyQuiz.vue')
 const N5Unit2VocabularyQuiz = () => import('@/views/n5/Unit2VocabularyQuiz.vue')
 const N5Unit3VocabularyQuiz = () => import('@/views/n5/Unit3VocabularyQuiz.vue')
@@ -53,6 +56,9 @@ const router = createRouter({
     { path: '/n5/unit5', component: N5Unit5 },
     { path: '/n5/unit5/vocabulary-quiz', component: N5Unit5VocabularyQuiz },
     { path: '/n5/unit5/grammar-quiz', component: N5Unit5GrammarQuiz },
+    { path: '/n5/unit6', component: N5Unit6 },
+    { path: '/n5/unit6/vocabulary-quiz', component: N5Unit6VocabularyQuiz },
+    { path: '/n5/unit6/grammar-quiz', component: N5Unit6GrammarQuiz },
   ],
 })
 

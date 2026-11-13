@@ -29,7 +29,9 @@
         <router-link class="ms-5" to="/n5/unit5">- Unit 5</router-link>
         <router-link class="ms-5" to="/n5/unit5/vocabulary-quiz">- Ôn từ vựng Unit 5</router-link>
         <router-link class="ms-5" to="/n5/unit5/grammar-quiz">- Ôn ngữ pháp Unit 5</router-link>
-      </div>
+                <router-link class="ms-5" to="/n5/unit6">- Unit 6</router-link>
+                <router-link class="ms-5" to="/n5/unit6/vocabulary-quiz">- Ôn từ vựng Unit 6</router-link>
+                <router-link class="ms-5" to="/n5/unit6/grammar-quiz">- Ôn ngữ pháp Unit 6</router-link>      </div>
     </div>
   </section>
 </template>

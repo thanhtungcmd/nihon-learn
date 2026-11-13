@@ -32,7 +32,7 @@ export const unit5Grammar = {
       'らいしゅう の げつようび どこ へ いきます か。',
       'パワーでんき へ いきます。',
     ], vietnamese: [
-      'Chiều hôm qua bạn đã đi đâu?',
+      'Thứ Hai tuần sau bạn đi đâu?',
       'Tôi đi đến Power Denki.',
     ] },
     { japanese: [

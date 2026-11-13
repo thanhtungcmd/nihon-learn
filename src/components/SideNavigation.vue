@@ -50,7 +50,7 @@ const navigationGroups = [
       { to: '/n5/unit1', label: 'Bài 1' },
       { to: '/n5/unit1/vocabulary-quiz', label: 'Ôn từ vựng Bài 1' },
       { to: '/n5/unit1/grammar-quiz', label: 'Ôn ngữ pháp Bài 1' },
-      ...Array.from({ length: 4 }, (_, index) => {
+      ...Array.from({ length: 5 }, (_, index) => {
         const unit = index + 2;
         return [
           { to: `/n5/unit${unit}`, label: `Bài ${unit}` },
