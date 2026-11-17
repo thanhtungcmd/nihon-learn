@@ -30,14 +30,15 @@ function encodeXml(value: string) {
 
 export async function playJapanesePronunciation(
   text: string,
-  voiceId: VoiceId = 'Takumi'
+  voiceId: VoiceId = 'Takumi',
+  rate = 60
 ): Promise<void> {
   if (!text || !text.trim()) {
     return;
   }
 
   const requestId = ++playbackRequest;
-  const ssmlText = `<speak><prosody rate="60%">${encodeXml(text.trim())}</prosody></speak>`;
+  const ssmlText = `<speak><prosody rate="${rate}%">${encodeXml(text.trim())}</prosody></speak>`;
 
   try {
     const command = new SynthesizeSpeechCommand({

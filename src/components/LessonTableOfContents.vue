@@ -55,14 +55,14 @@ onBeforeUnmount(() => cancelAnimationFrame(frameId));
   max-height: calc(100vh - 48px);
   overflow-y: auto;
   padding: 16px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--tblr-border-color);
   border-radius: 12px;
-  background: #fff;
+  background: var(--tblr-bg-surface);
 }
 
 .lesson-toc-title {
   margin-bottom: 8px;
-  color: #64748b;
+  color: var(--tblr-secondary-color);
   font-size: 13px;
   font-weight: 700;
   letter-spacing: .06em;
@@ -76,7 +76,7 @@ onBeforeUnmount(() => cancelAnimationFrame(frameId));
   border: 0;
   border-radius: 6px;
   background: transparent;
-  color: #475569;
+  color: var(--tblr-secondary-color);
   font: inherit;
   font-size: 15px;
   line-height: 1.35;
@@ -86,8 +86,8 @@ onBeforeUnmount(() => cancelAnimationFrame(frameId));
 
 .lesson-toc button:hover,
 .lesson-toc button:focus-visible {
-  background: #eff6ff;
-  color: #1d4ed8;
+  background: rgba(59, 130, 246, .15);
+  color: var(--tblr-primary);
   outline: none;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <section class="card shadow-sm border-0">
     <div class="card-body p-4 p-md-5">
-      <h1 class="mt-3 mb-3">Lesson 6</h1>
+      <h1 class="mt-3 mb-3">Bài 6</h1>
 
       <div class="text"><ruby>語彙<rt>ごい</rt></ruby></div>
       <PronunciationTable :items="vocabularyList" show-vietnamese />

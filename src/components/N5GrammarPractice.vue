@@ -12,6 +12,7 @@ const feedback = ref<{ sentence: N5GrammarSentence; correct: boolean } | null>(n
 const correctCount = ref(0);
 const incorrectCount = ref(0);
 const input = ref<HTMLTextAreaElement | null>(null);
+const nextButton = ref<HTMLButtonElement | null>(null);
 const totalAnswered = computed(() => correctCount.value + incorrectCount.value);
 
 useSelectionActions({ onAction: (text) => void pronounce(text), shortcutKey: 'k' });
@@ -53,6 +54,7 @@ function record(correct: boolean) {
   feedback.value = { sentence: currentSentence.value, correct };
   if (correct) correctCount.value += 1;
   else incorrectCount.value += 1;
+  nextTick(() => nextButton.value?.focus());
 }
 
 function submitAnswer() {
@@ -100,7 +102,7 @@ nextQuestion();
             <span v-for="(sentence, index) in feedback.sentence.japanese" :key="index" class="correct-answer" lang="ja">{{ sentence }}</span>
           </template>
         </div>
-        <button v-if="feedback" class="btn btn-primary btn-lg mt-3 px-5" type="button" @click="nextQuestion">Câu tiếp theo</button>
+        <button v-if="feedback" ref="nextButton" class="btn btn-primary btn-lg mt-3 px-5" type="button" @click="nextQuestion">Câu tiếp theo</button>
       </div>
     </div>
   </section>
@@ -108,10 +110,21 @@ nextQuestion();
 
 <style scoped>
 .grammar-practice { max-width: 900px; margin: 0 auto; }
-.scoreboard { display: flex; flex-wrap: wrap; gap: 8px; font-weight: 700; }.scoreboard span { padding: 7px 10px; border-radius: 999px; }
-.score-correct { background: #f0fdf4; color: #166534; }.score-incorrect { background: #fef2f2; color: #991b1b; }.score-total { background: #eff6ff; color: #1d4ed8; }
-.question-card { max-width: 680px; padding: 32px 24px; border: 1px solid #dbeafe; border-radius: 18px; background: linear-gradient(145deg, #f8fbff, #eff6ff); }
-.question-label { margin: 0; color: #64748b; font-size: 13px; font-weight: 700; letter-spacing: .12em; }.vietnamese-sentences { margin: 18px 0 12px; }.vietnamese-sentence { margin: 0; color: #0f172a; font-size: clamp(24px, 4vw, 34px); font-weight: 600; line-height: 1.55; }.vietnamese-sentence + .vietnamese-sentence { margin-top: 8px; }
-.grammar-hint { display: inline-block; margin: 0; padding: 6px 10px; border-radius: 8px; background: #dbeafe; color: #1e40af; }.answer-input { font-family: system-ui, sans-serif; font-size: 20px; line-height: 1.6; }
-.feedback { display: flex; flex-direction: column; gap: 4px; padding: 14px 18px; border-radius: 12px; }.feedback.is-correct { background: #f0fdf4; color: #166534; }.feedback.is-incorrect { background: #fef2f2; color: #991b1b; }.correct-answer { font-size: 20px; font-weight: 700; }
+.scoreboard { display: flex; flex-wrap: wrap; gap: 8px; font-weight: 700; }
+.scoreboard span { padding: 7px 10px; border-radius: 999px; }
+.score-correct { background: rgba(34, 197, 94, .15); color: #16a34a; }
+.score-incorrect { background: rgba(239, 68, 68, .15); color: #dc2626; }
+.score-total { background: rgba(59, 130, 246, .15); color: var(--tblr-primary); }
+.question-card { max-width: 680px; padding: 32px 24px; border: 1px solid var(--tblr-border-color); border-radius: 18px; background: var(--tblr-bg-surface-secondary); }
+.question-label { margin: 0; color: var(--tblr-secondary-color); font-size: 13px; font-weight: 700; letter-spacing: .12em; }
+.vietnamese-sentences { margin: 18px 0 12px; }
+.vietnamese-sentence { margin: 0; color: var(--tblr-body-color); font-size: clamp(24px, 4vw, 34px); font-weight: 600; line-height: 1.55; }
+.vietnamese-sentence + .vietnamese-sentence { margin-top: 8px; }
+.grammar-hint { display: inline-block; margin: 0; padding: 6px 10px; border-radius: 8px; background: rgba(59, 130, 246, .15); color: var(--tblr-primary); }
+.answer-input { font-family: system-ui, sans-serif; font-size: 20px; line-height: 1.6; }
+.feedback { display: flex; flex-direction: column; gap: 4px; padding: 14px 18px; border-radius: 12px; }
+.feedback.is-correct { background: rgba(34, 197, 94, .15); color: #16a34a; }
+.feedback.is-incorrect { background: rgba(239, 68, 68, .15); color: #dc2626; }
+.correct-answer { font-size: 20px; font-weight: 700; }
+@media (max-width: 575px) { .question-card { padding: 24px 12px; } }
 </style>

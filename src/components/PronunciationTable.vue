@@ -20,13 +20,10 @@
             <td v-if="showVietnamese">
               <div v-for="(line, lineIndex) in item.vietnamese" :key="lineIndex">{{ line }}</div>
             </td>
-            <td>
-              <IconVolume
-                stroke="2"
-                class="icon-volume"
-                aria-label="Phát âm"
-                @click="playPronunciation(item.japanese?.join('') ?? '')"
-              />
+            <td class="play-cell">
+              <button type="button" class="play-button" aria-label="Phát âm" @click="playPronunciation(item.japanese?.join('') ?? '')">
+                <IconVolume stroke="2" />
+              </button>
             </td>
           </tr>
         </tbody>
@@ -69,5 +66,13 @@ async function playPronunciation(text: string) {
 .pronunciation-table th:last-child { width: 10%; }
 .pronunciation-table.with-vietnamese th:first-child { width: 45%; }
 
-.icon-volume { cursor: pointer; }
+.play-cell { text-align: center; }
+.play-button { display: inline-grid; width: 44px; height: 44px; place-items: center; border: 0; border-radius: 50%; background: transparent; color: var(--tblr-secondary-color); cursor: pointer; }
+.play-button:hover, .play-button:focus-visible { background: rgba(59, 130, 246, .15); color: var(--tblr-primary); }
+
+@media (max-width: 767px) {
+  .pronunciation-table th:first-child { width: auto; }
+  .pronunciation-table th:last-child { width: 56px; }
+  .pronunciation-table.with-vietnamese th:first-child { width: 45%; }
+}
 </style>

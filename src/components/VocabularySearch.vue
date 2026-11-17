@@ -9,8 +9,9 @@ const query = ref('');
 const input = ref<HTMLInputElement | null>(null);
 const results = computed(() => searchVocabulary(query.value));
 
-function open() {
+function open(initialQuery = '') {
   isOpen.value = true;
+  query.value = initialQuery;
   nextTick(() => input.value?.focus());
 }
 
@@ -47,8 +48,18 @@ function handleShortcut(event: KeyboardEvent) {
   if (event.key === 'Escape' && isOpen.value) close();
 }
 
-onMounted(() => window.addEventListener('keydown', handleShortcut));
-onBeforeUnmount(() => window.removeEventListener('keydown', handleShortcut));
+function handleSearchRequest(event: Event) {
+  open((event as CustomEvent<string>).detail);
+}
+
+onMounted(() => {
+  window.addEventListener('keydown', handleShortcut);
+  window.addEventListener('open-vocabulary-search', handleSearchRequest);
+});
+onBeforeUnmount(() => {
+  window.removeEventListener('keydown', handleShortcut);
+  window.removeEventListener('open-vocabulary-search', handleSearchRequest);
+});
 </script>
 
 <template>
@@ -82,13 +93,13 @@ onBeforeUnmount(() => window.removeEventListener('keydown', handleShortcut));
 
 <style scoped>
 .vocabulary-search-backdrop { position: fixed; inset: 0; z-index: 3000; display: grid; place-items: start center; padding: min(12vh, 100px) 16px 16px; background: rgba(15, 23, 42, 0.45); }
-.vocabulary-search { width: min(680px, 100%); overflow: hidden; border-radius: 12px; background: white; box-shadow: 0 20px 50px rgba(15, 23, 42, 0.3); }
+.vocabulary-search { width: min(680px, 100%); overflow: hidden; border-radius: 12px; background: var(--tblr-bg-surface); color: var(--tblr-body-color); box-shadow: 0 20px 50px rgba(15, 23, 42, 0.3); }
 .vocabulary-search-results { max-height: min(55vh, 480px); overflow-y: auto; }
-.vocabulary-result { display: grid; width: 100%; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 16px; padding: 12px; border: 0; border-radius: 8px; background: transparent; text-align: left; }
-.vocabulary-result:hover, .vocabulary-result:focus-visible { background: #f1f5f9; }
+.vocabulary-result { display: grid; width: 100%; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 16px; padding: 12px; border: 0; border-radius: 8px; background: transparent; color: inherit; text-align: left; }
+.vocabulary-result:hover, .vocabulary-result:focus-visible { background: var(--tblr-bg-surface-secondary); }
 .vocabulary-result-japanese { font-size: 20px; font-weight: 600; }
-.vocabulary-result-vietnamese { grid-column: 1; color: #475569; }
-.vocabulary-result small { grid-column: 2; grid-row: 1 / span 2; align-self: center; color: #64748b; }
+.vocabulary-result-vietnamese { grid-column: 1; color: var(--tblr-secondary-color); }
+.vocabulary-result small { grid-column: 2; grid-row: 1 / span 2; align-self: center; color: var(--tblr-secondary-color); }
 :global(.vocabulary-search-target) { animation: vocabulary-search-flash 1.8s ease-out; }
-@keyframes vocabulary-search-flash { 0%, 60% { background-color: #fef3c7; } 100% { background-color: transparent; } }
+@keyframes vocabulary-search-flash { 0%, 60% { background-color: rgba(250, 204, 21, .35); } 100% { background-color: transparent; } }
 </style>

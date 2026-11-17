@@ -48,7 +48,7 @@ async function playSentence() {
 <template>
   <section class="card shadow-sm border-0">
     <div class="card-body p-4 p-md-5">
-      <h1 class="mb-3">Đọc câu tiếng Nhật</h1>
+      <h1 class="mt-3 mb-3">Đọc câu tiếng Nhật</h1>
       <form @submit.prevent="playSentence">
         <label for="japanese-sentence" class="form-label">Câu tiếng Nhật</label>
         <textarea id="japanese-sentence" v-model="sentence" class="form-control mb-3 p-3" style="font-size: 2rem" rows="4" lang="ja" placeholder="Nhập câu tiếng Nhật"></textarea>
