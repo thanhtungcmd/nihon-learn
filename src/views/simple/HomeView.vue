@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { basicLinks, n5Units, unitLinks } from '@/data/navigation';
+import { basicLinks, kanjiLinks, n5Units, unitLinks } from '@/data/navigation';
 </script>
 
 <template>
@@ -12,6 +12,15 @@ import { basicLinks, n5Units, unitLinks } from '@/data/navigation';
     <h2 class="h3 mb-3">Cơ bản</h2>
     <div class="row g-3 mb-5">
       <div v-for="link in basicLinks" :key="link.to" class="col-6 col-md-4 col-xl-3">
+        <RouterLink :to="link.to" class="card card-link h-100">
+          <div class="card-body fw-semibold">{{ link.label }}</div>
+        </RouterLink>
+      </div>
+    </div>
+
+    <h2 class="h3 mb-3">Kanji N5</h2>
+    <div class="row g-3 mb-5">
+      <div v-for="link in kanjiLinks" :key="link.to" class="col-6 col-md-4 col-xl-3">
         <RouterLink :to="link.to" class="card card-link h-100">
           <div class="card-body fw-semibold">{{ link.label }}</div>
         </RouterLink>

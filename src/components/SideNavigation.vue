@@ -3,7 +3,7 @@ import { onBeforeUnmount, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { IconMoon, IconSun } from '@tabler/icons-vue';
 import { useTheme } from '@/composables/useTheme';
-import { basicLinks, n5Units, unitLinks } from '@/data/navigation';
+import { basicLinks, kanjiLinks, n5Units, unitLinks } from '@/data/navigation';
 
 const { theme, toggleTheme } = useTheme();
 const isCollapsed = ref(false);
@@ -37,6 +37,7 @@ onBeforeUnmount(stopResize);
 
 const navigationGroups = [
   { label: 'Cơ bản', links: [{ to: '/', label: 'Trang chủ' }, ...basicLinks] },
+  { label: 'Kanji N5', links: kanjiLinks },
 ];
 
 const route = useRoute();

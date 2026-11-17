@@ -8,6 +8,10 @@ export const basicLinks = [
   { to: '/polite-verb-forms', label: 'Chia động từ (ます形)' },
 ];
 
+export const kanjiLinks = [
+  { to: '/kanji/n5/unit1', label: 'Bài 1 – Số đếm' },
+];
+
 // Add the next unit number here, together with its route and data files.
 export const n5Units = [1, 2, 3, 4, 5, 6];
 
@@ -25,6 +29,9 @@ export interface Breadcrumb {
 export function breadcrumbsFor(path: string): Breadcrumb[] {
   const basic = basicLinks.find((link) => link.to === path);
   if (basic) return [{ label: 'Trang chủ', to: '/' }, { label: 'Cơ bản' }, { label: basic.label }];
+
+  const kanji = kanjiLinks.find((link) => link.to === path);
+  if (kanji) return [{ label: 'Trang chủ', to: '/' }, { label: 'Kanji N5' }, { label: kanji.label }];
 
   const unit = Number(path.match(/^\/n5\/unit(\d+)/)?.[1]);
   const link = unitLinks(unit).find((item) => item.to === path);
