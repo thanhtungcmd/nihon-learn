@@ -10,6 +10,7 @@ const Vowel = () => import('@/views/simple/Vowel.vue')
 const Hello = () => import('@/views/simple/Hello.vue')
 const Pronunciation = () => import('@/views/simple/Pronunciation.vue')
 const PoliteVerbForms = () => import('@/views/simple/PoliteVerbForms.vue')
+const ViToJa = () => import('@/views/simple/ViToJa.vue')
 const KanjiUnit1 = () => import('@/views/kanji/KanjiUnit1.vue')
 const N5Unit1 = () => import('@/views/n5/Unit1.vue')
 const N5Unit2 = () => import('@/views/n5/Unit2.vue')
@@ -41,6 +42,7 @@ const router = createRouter({
     { path: '/hello', component: Hello },
     { path: '/pronunciation', component: Pronunciation },
     { path: '/polite-verb-forms', component: PoliteVerbForms },
+    { path: '/vi-ja', component: ViToJa },
 
     { path: '/kanji/n5/unit1', component: KanjiUnit1 },
 
