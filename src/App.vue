@@ -3,6 +3,8 @@ import { computed, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import LessonTableOfContents from '@/components/LessonTableOfContents.vue';
 import SideNavigation from '@/components/SideNavigation.vue';
+import AwsLogin from '@/components/AwsLogin.vue';
+import { awsClients } from '@/services/awsSession';
 import VocabularySearch from '@/components/VocabularySearch.vue';
 import { useSelectionActions } from '@/composables/useSelectionActions';
 import { findTranslationForText } from '@/services/translationRegistry';
@@ -62,7 +64,8 @@ function searchSelection() {
 </script>
 
 <template>
-  <div class="app-shell">
+  <AwsLogin v-if="!awsClients" />
+  <div v-else class="app-shell">
     <SideNavigation />
     <main class="app-content py-4 py-md-5">
       <div class="lesson-layout" :class="{ 'has-toc': isN5Lesson }">

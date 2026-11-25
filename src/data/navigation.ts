@@ -7,6 +7,7 @@ export const basicLinks = [
   { to: '/pronunciation', label: 'Đọc câu tiếng Nhật' },
   { to: '/polite-verb-forms', label: 'Chia động từ (ます形)' },
   { to: '/vi-ja', label: 'Tra từ Việt → Nhật' },
+  { to: '/ja-vi', label: 'Tra từ Nhật → Việt' },
 ];
 
 export const kanjiLinks = [

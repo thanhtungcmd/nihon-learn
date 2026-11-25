@@ -1,12 +1,5 @@
-import { PollyClient, SynthesizeSpeechCommand, type VoiceId } from '@aws-sdk/client-polly';
-
-const polly = new PollyClient({
-  region: import.meta.env.VITE_AWS_REGION || 'ap-northeast-1',
-  credentials: {
-    accessKeyId: import.meta.env.VITE_AWS_ACCESS_KEY_ID || '',
-    secretAccessKey: import.meta.env.VITE_AWS_SECRET_ACCESS_KEY || '',
-  },
-});
+import { SynthesizeSpeechCommand, type VoiceId } from '@aws-sdk/client-polly';
+import { requireAwsClients } from '@/services/awsSession';
 
 let activeAudio: HTMLAudioElement | undefined;
 let activeAudioUrl: string | undefined;
@@ -50,7 +43,7 @@ export async function playJapanesePronunciation(
       Text: ssmlText,
     });
 
-    const response = await polly.send(command);
+    const response = await requireAwsClients().polly.send(command);
     if (!response.AudioStream) {
       throw new Error('No audio stream received from Polly.');
     }

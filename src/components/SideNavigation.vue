@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { onBeforeUnmount, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
-import { IconMoon, IconSun } from '@tabler/icons-vue';
+import { IconLogout, IconMoon, IconSun } from '@tabler/icons-vue';
 import { useTheme } from '@/composables/useTheme';
+import { signOutAws } from '@/services/awsSession';
 import { basicLinks, kanjiLinks, n5Units, unitLinks } from '@/data/navigation';
 
 const { theme, toggleTheme } = useTheme();
@@ -64,6 +65,9 @@ watch(() => route.path, () => {
         >
           <IconSun v-if="theme === 'dark'" :size="20" />
           <IconMoon v-else :size="20" />
+        </button>
+        <button v-show="!isCollapsed" type="button" class="menu-toggle" aria-label="Đăng xuất AWS" title="Đăng xuất AWS" @click="signOutAws">
+          <IconLogout :size="20" />
         </button>
         <button
           type="button"
